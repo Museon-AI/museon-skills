@@ -1,28 +1,21 @@
 ---
 name: slideshow-analyzer
-description: "TikTok/Instagram slideshow analysis and creation. Two core capabilities: (1) Analyze any slideshow to extract viral hooks, memes, visual strategy, and narrative structure; (2) Guide creation of slideshow variants based on accumulated case insights. Covers both humor-driven (meme) and non-humor (emotional, aspirational, aesthetic) slideshows. Trigger when user mentions analyzing slideshow, deconstructing image-text content, creating TikTok slides, or deriving slideshow variants."
+description: "TikTok/Instagram slideshow analysis. Analyze any slideshow to extract viral hooks, memes, visual strategy, narrative structure, and reusable blueprints (soul vs skin). Covers both humor-driven (meme) and non-humor (emotional, aspirational, aesthetic) slideshows. Trigger when user mentions analyzing slideshow, deconstructing image-text content, or extracting slideshow patterns."
 ---
 
-# Slideshow Analyzer & Creator
+# Slideshow Analyzer
 
-Two modules that feed each other:
-
-- **Analyze** — Take apart any slideshow: what do you see → how is it structured → why would someone share it → what's soul, what's skin
-- **Create** — Build new slideshows by keeping the soul and reinventing the skin
+Analyze any slideshow: what do you see → how is it structured → why would someone share it → what's soul, what's skin.
 
 All accumulated knowledge lives in `references/`:
 - **`analysis-playbook.md`** — Four archetypes, trigger types, mechanisms (humor + non-humor), structure rules, ad strategies, soul vs skin framework
-- **`image-generation-guide.md`** — AI prompt templates, expression keywords, authenticity rules, text rendering execution, single-pass multi-panel strategy
 - **`cases.md`** — Every analyzed case with full breakdown and reusable blueprint
 
-Reusable scripts live in `scripts/`:
-- **`multi_panel_slice.py`** — Detect the buffer band in a 2x2 multi-panel render and slice it into 4 clean panels (used after single-pass multi-panel generation)
-
-**Read `analysis-playbook.md` and `cases.md` before analyzing or deriving. Read `image-generation-guide.md` only when generating images.**
+**Read `analysis-playbook.md` and `cases.md` before analyzing.**
 
 ---
 
-## Module 1: Analyze
+## Analysis Flow
 
 Eight steps. Do them in order. Steps 4, 5, and 7 are the most important.
 
@@ -218,80 +211,9 @@ If you discovered a new mechanism, tactic, linguistic pattern, or ad insertion s
 
 ---
 
-## Module 2: Create
-
-**Read `references/analysis-playbook.md` and `references/cases.md` first.**
-
-Two paths:
-
-### Path A: Variant of an existing case
-
-**Step 1 — Retrieve the blueprint**: Check if the source case has a Soul vs Skin table in `cases.md` (from Module 1 Step 7). If not, run Module 1 on the source first.
-
-**Step 2 — Fit the new product**: Map your product into the blueprint's ad slot.
-
-| Question | Action |
-|----------|--------|
-| Product fit mechanism? | Check blueprint's transferability. If your product is listed under "BREAK", use Path B instead. |
-| Ad strategy compatible? | Match the original's strategy type. Humor: Ad-as-punchline → your product must be funny there. Non-humor: Ad-as-cause → your product must plausibly cause the transformation. |
-| Narrative justification? | Rewrite the ad slide's story logic for your product. Must feel equally natural. |
-| Linguistic pattern work? | Fill in the original's text template with your product. If forced, adapt the pattern. |
-
-**Step 3 — Keep soul, reinvent skin**: Change everything marked OPEN/skin. Keep everything marked LOCKED/soul.
-
-Change at least 2 skin elements:
-
-| Skin element | Example variation |
-|-------------|-------------------|
-| Vehicle | Meme: Cat → raccoon. Emotional: illustrated girl → illustrated boy. Mood: city skyline → mountain cabin |
-| Setting | Office → kitchen, bedroom → library, shelter → foster home |
-| Cultural reference | Western office culture → Asian study culture |
-| Linguistic fill-in | "Work" / "Fitness" → "Meetings" / "Emails" (same pattern, different content) |
-| Text format | Caption Bar → Impact Overlay, or Minimal serif → Bold statement |
-| Tone | Self-deprecating → absurdist, melancholic → hopeful |
-
-**Anti-clone test**: Show the variant next to the original. If a viewer would say "that's the same thing", you haven't changed enough skin. Change more.
-
-**Step 4 — Soul preservation test**: Before generating images, verify:
-1. Does the variant still trigger the SAME trigger type(s)?
-2. Does it still trigger the SAME primary mechanism?
-3. Would someone still share it for the SAME reason?
-4. Is the unspoken truth still resonant, or did the skin changes dilute it?
-5. Does the ad still feel narratively justified, not bolted-on?
-
-If any answer is "no", go back to Step 3 and adjust.
-
-**Step 5 — Execute**: Read `references/image-generation-guide.md`, then design specific scenes, text, and visual style. Generate images following the guide's rules and checklist.
-
-### Path B: From scratch
-
-**Step 1 — Why would someone share this?** Pick a trigger type, archetype, and mechanism from the playbook (or define new). Answer: what unspoken truth? who's the audience?
-
-**Step 2 — How to deliver it?** Choose tactics:
-
-| Decision | Examples |
-|----------|---------|
-| Archetype | Character-Action, Tension-Punchline, Emotional Arc, Mood Showcase |
-| Vehicle | Animals, classical art, plush toys, illustrated characters, atmospheric photography, grid collages, UGC photos... |
-| Narrative | Day-in-life, doom spiral, before/after, single punchline, mood progression, aesthetic curation... |
-| Information Format | List, Story, Zoom progression, Comparison, Parallel Contrast, Mood Board, Atmospheric Progression... |
-| Slide relationship | Independent scenes, zoom, pan, progression |
-| Engagement type | Self-deprecating humor, absurdist, deadpan, wholesome, aspirational, empathetic, cinematic... |
-| Text format | Caption Bar, Impact Overlay, Minimal serif, Bold statement, No text |
-
-Verify: Can this vehicle carry this mechanism? (See Vehicle Compatibility in playbook)
-
-**Step 3 — Design slides**: Decide specific scenes, text per slide, visual style. Map out the soul vs skin to make sure you know what you're locking.
-
-**Step 4 — Execute**: Read `references/image-generation-guide.md`, then generate images following the guide's rules and checklist.
-
----
-
 ## Updating This Skill
 
 After each session:
 1. New case → append to `references/cases.md`
 2. New mechanism or trigger type → add to `references/analysis-playbook.md`
 3. New tactic or analysis rule → add to relevant section in `references/analysis-playbook.md`
-4. New image generation trick → add to `references/image-generation-guide.md`
-5. New reusable post-processing tool → add a script under `scripts/` and reference it from the relevant guide section
