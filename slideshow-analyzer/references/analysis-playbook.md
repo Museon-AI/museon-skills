@@ -1,14 +1,15 @@
 # Analysis Playbook
 
-Knowledge for analyzing and deriving slideshows. For image generation execution details, see `image-generation-guide.md`. Cases live in `cases.md`.
+Knowledge for analyzing and deriving slideshows. Cases live in `cases.md`.
 
 ---
 
 ## Contents
 
 1. [The Three Layers](#the-three-layers)
-2. [Four Archetypes](#four-archetypes)
-3. [Trigger Types](#trigger-types) — upstream: what psychological trigger drives shares?
+2. [Text CTA Hook & Content Strategy](#text-cta-hook--content-strategy) — the primary driver for views and shares
+3. [Four Archetypes](#four-archetypes)
+4. [Trigger Types](#trigger-types) — upstream: what psychological trigger drives shares?
 4. [Mechanism Library](#mechanism-library) — downstream: how is the trigger delivered?
 5. [Vehicle Compatibility](#vehicle-compatibility)
 6. [Slide Structure](#slide-structure) (Visual Continuity + Information Format)
@@ -29,6 +30,34 @@ Always work top-down:
 3. **What do you see?** — Specific characters, scenes, fonts, text. Last decisions, most replaceable.
 
 **Anti-pattern**: Starting from "let's use a cat" produces clones, not innovations.
+
+---
+
+## Text CTA Hook & Content Strategy
+
+In version 3.0 of this playbook, **text content and the first slide's CTA hook** are recognized as the most critical drivers for views (play rate) and shares. While visual mechanisms matter, the text is what stops the scroll and forces the swipe.
+
+### The Slide 0 CTA Hook
+
+The first slide must contain a Text CTA Hook that creates an immediate, irresistible reason to swipe. This is not just a title; it is a psychological trap.
+
+| Hook Type | How it works | Example |
+|-----------|-------------|---------|
+| **Curiosity Gap** | States a premise but hides the conclusion | "I tried the 5am routine and here's what actually happened" |
+| **Direct Command** | Tells the viewer exactly what to do, often parasocially | "Hey, come closer, I have to tell you something" (Case 006) |
+| **Relatable Accusation** | Calls out a specific, slightly embarrassing behavior | "She said she came to study but she's been on TikTok for 45mins" (Case 007) |
+| **Bold Claim** | States something controversial or highly desirable | "This one setting is ruining your photos" |
+| **Rhetorical Question** | Asks a question the viewer feels compelled to answer internally | "So how has your life been going" (Case 004) |
+
+### Text Content as the Sharing Engine
+
+Across the remaining slides, the text content must sustain the hook's promise. The text is often the actual "meme" that gets shared, while the image merely provides the vibe or proxy character.
+
+- **For Humor**: The text must escalate the joke (e.g., the Doom Spiral in Case 004: "Brain not braining" → "Sleep not sleeping").
+- **For Utility**: The text must be dense with value, making the slideshow worth saving.
+- **For Emotion**: The text must articulate the "unspoken truth" perfectly.
+
+**Analysis Rule**: When analyzing a slideshow, you must explicitly extract the Text CTA Hook strategy. When deriving a new slideshow, the Text CTA Hook is **Soul** — you can change the specific words (Skin), but you cannot change the hook's psychological strategy.
 
 ---
 
@@ -479,34 +508,41 @@ The most critical skill in analysis and derivation: distinguishing what you **ca
 
 ### Soul (LOCKED — change any of these and the slideshow stops working)
 
-| Element | Why it's soul | Example |
-|---------|--------------|---------|
-| **Trigger type** | The psychological reason people share | Case 006: curiosity ("come closer") — without curiosity, no one swipes |
-| **Primary mechanism** | How the trigger is delivered | Case 006: Parasocial Bait-and-Switch — without the "I got played" feeling, no one shares |
-| **Information Format** | The content logic between slides | Case 006: Zoom progression — if slides don't get closer, the "come closer" command is meaningless |
-| **Visual Continuity strength** | The spatial relationship between slides | Case 006: Strong (zoom) — weak continuity would break the physical "getting closer" experience |
-| **Linguistic pattern** | The text template that carries the engagement | Case 004: "X not X-ing" — the grammatical structure IS the joke. Stoic: silent progression — adding text would break the atmosphere |
-| **Ad insertion strategy** | How the product connects to the narrative | Case 006: Ad-as-punchline — moving the ad to a separate final slide would kill the self-referential humor |
-| **Archetype** | One of four: Character-Action, Tension-Punchline, Emotional Arc, Mood Showcase | Determines which rules, checklist, and vehicle/text norms apply |
-| **Shared text rendering spec** | Cross-slide consistency of font family, weight, color rule, size ratio, effects | An inconsistent spec across slides (serif on one, sans-serif on another; bold here, thin there) reads as "different templates stitched together" and breaks the set |
-| **Text position rule** | The rule that decides where text lands on each slide (fixed slot / avoid-subject / follow-object / ...) | Case 007: "letterboxed caption bar at top" is fixed; "no one cares" template: "avoid the subject, fill the lowest-density region" — specific landing point varies, but the rule does not |
+Every Soul element has a **purpose** — a specific reason why changing it would break the slideshow. If you cannot articulate the purpose, it is not Soul.
+
+| Element | Purpose: why it's locked | Example |
+|---------|-------------------------|--------|
+| **Text CTA Hook Strategy** | Controls whether people stop scrolling and start swiping. The hook type (curiosity gap, direct command, etc.) is the entry point for the entire mechanism. Change the hook type and the first-slide conversion rate collapses. | Case 006: Direct Command ("come closer") — without this, the zoom progression has no context. Case 004: Rhetorical Question ("So how has your life been going") — without this, the doom spiral has no setup. |
+| **Trigger type** | Determines the psychological reason people share. A slideshow built on curiosity cannot be converted to one built on rational proof without rebuilding everything. | Case 006: Instinct (curiosity) — without curiosity, no one swipes through the zoom. |
+| **Primary mechanism** | The specific way the trigger is delivered. This is the "engine" — the reason someone screenshots or forwards. Remove it and the content becomes noise. | Case 006: Parasocial Bait-and-Switch — without the "I got played" feeling, no one shares. |
+| **Archetype** | Determines which structural rules, quality checklist, and vehicle/text norms apply. Switching archetype means switching the entire ruleset. | Character-Action requires per-slide visual gags; Tension-Punchline requires cumulative build. They are incompatible. |
+| **Information Format** | The content logic between slides. Changing it breaks the swipe experience because the viewer's expectation of "what comes next" is destroyed. | Case 006: Zoom progression — if slides don't get closer, "come closer" is meaningless. Case 004: Story (escalating) — if slides can be shuffled, the doom spiral loses its descent. |
+| **Visual Continuity strength** | Controls whether swiping feels like a physical action (zoom, pan) or a page turn. Weakening strong continuity removes the embodied experience that makes certain mechanisms work. | Case 006: Strong (zoom) — weak continuity would break the physical "getting closer" experience. Case 007: Strong (single-image split) — the cross-slide gesture IS the reveal. |
+| **Linguistic pattern** | The grammatical/rhetorical template that carries the engagement. The pattern is often the actual "meme" being shared — it is what makes the text memorable and repeatable. | Case 004: "X not X-ing" — the grammatical structure IS the joke. Stoic: silent progression — adding text would break the atmosphere. |
+| **Ad insertion strategy** | How the product connects to the narrative. Changing the strategy (e.g., from Ad-as-punchline to Ad-as-final-slide) breaks the narrative justification and makes the ad feel bolted-on. | Case 006: Ad-as-punchline — the monkey calling work "monkey behavior" IS the joke. Moving the ad to a separate slide kills the self-referential humor. |
+| **Shared text rendering spec** | Cross-slide visual consistency of font family, weight, color rule, size ratio, effects. Inconsistency (serif on one slide, sans-serif on another) reads as "different templates stitched together" and breaks the perception of a single coherent set. | An inconsistent spec makes the set look like a random collection, not a designed slideshow. |
+| **Text position rule** | The rule that decides where text lands on each slide (fixed slot / avoid-subject / follow-object). The rule ensures the text-image relationship is predictable across slides, which is what makes the set feel like one template. | Case 007: "letterboxed caption bar at top" is fixed. Case 004: "avoid the subject, fill the lowest-density region" — the specific landing point varies, but the rule does not. |
 
 ### Skin (OPEN — freely replaceable without breaking the mechanism)
 
-| Element | What you can swap | Example |
-|---------|------------------|---------|
-| **Vehicle** | The specific character/subject | Meme: Cat → raccoon, monkey plush → frog figurine. Emotional: illustrated girl → illustrated boy. Mood: city skyline → mountain cabin |
-| **Setting** | Where the scene takes place | Office → kitchen, bedroom → library |
-| **Specific content** | What fills the linguistic pattern slots | "Brain not braining" → "Code not coding", "Work" → "Meetings" |
-| **Cultural reference** | What cultural context is used | Western office culture → Asian study culture |
-| **Text format family choice** | Caption Bar vs Impact Overlay vs Minimal serif vs Bold statement | Pick one format at the set level; it is Soul within the set, but replaceable across derivations as long as the mechanism still works |
-| **Specific font pick within the chosen family** | e.g., Helvetica vs Arial within "bold sans-serif", SF Pro vs Inter within "geometric sans-serif" | Any member of the chosen family is interchangeable as long as the rendering spec stays consistent across slides |
-| **Specific text position on each slide** | The exact x/y landing of the text block on a given slide | Free to vary per slide, as long as the position rule (Soul) is obeyed |
-| **Visual style** | Photo quality, color palette, era | Phone snapshot → lo-fi illustration (as long as authenticity is maintained) |
-| **Number of slides** | How many build slides before the spike | 3 builds → 5 builds (as long as pacing works) |
+Every Skin element has a **constraint** — the boundary within which it can be freely swapped.
+
+| Element | What you can swap + constraint | Example |
+|---------|-------------------------------|--------|
+| **Vehicle** | The specific character/subject carrying the mechanism. Constraint: the new vehicle must pass the Vehicle Compatibility check in the playbook (e.g., Proxy Expression needs an expressive face; Forbidden Release needs a body capable of human-like gestures). | Meme: Cat → raccoon (both have expressive faces). Mood: city skyline → mountain cabin (both sell atmosphere). BAD: Cat → desk lamp (no face = no Proxy Expression). |
+| **Setting/Environment** | Where the scene takes place. Constraint: the new setting must (1) be recognizable to the target audience as a relatable context, and (2) support the mechanism — e.g., Forbidden Release needs a setting with social rules to break; Aspirational Pull needs a setting that sells a desirable lifestyle. | Office → kitchen (both have social rules). Bedroom → library (both are relatable study/rest contexts). BAD: Office → Mars surface (not relatable, breaks Proxy Expression). |
+| **Specific text content** | What fills the linguistic pattern slots. Constraint: the new content must fit the pattern naturally and escalate/progress in the same way as the original. | "Brain not braining" → "Code not coding" (same X-not-X-ing pattern). "Work" → "Meetings" (same single-word label). BAD: "Brain not braining" → "I am very tired" (breaks the pattern). |
+| **Cultural reference** | What cultural context is used. Constraint: the new reference must be equally recognizable to the target audience and trigger the same emotional response. | Western office culture → Asian study culture (both trigger "I hate this but I have to do it"). BAD: Office culture → medieval farming (not relatable to target audience). |
+| **Text format family** | Caption Bar vs Impact Overlay vs Minimal serif vs Bold statement. Constraint: the chosen format must match the archetype's text norms (meme archetypes need Caption Bar or Impact; emotional archetypes need Minimal serif or Bold statement). Soul within a single set, but replaceable across derivations. | Caption Bar → Impact Overlay (both are meme-native). BAD: Caption Bar → Minimal serif on a Character-Action meme (kills meme energy). |
+| **Specific font pick** | e.g., Helvetica vs Arial within "bold sans-serif". Constraint: must stay within the chosen family and maintain rendering spec consistency across all slides. | Any member of the chosen family is interchangeable. |
+| **Specific text position** | The exact x/y landing of the text block on a given slide. Constraint: must obey the position rule (Soul). | Free to vary per slide, as long as the rule is followed. |
+| **Visual style** | Photo quality, color palette, era. Constraint: must maintain the authenticity level required by the archetype (memes need phone-snapshot feel; mood showcases need cinematic quality). | Phone snapshot → lo-fi illustration (both feel authentic for memes). BAD: Phone snapshot → studio photography (kills meme authenticity). |
+| **Number of slides** | How many build slides before the spike. Constraint: must maintain the pacing — too few builds and the spike has no setup; too many and the viewer drops off. | 3 builds → 5 builds (as long as each build adds value). BAD: 3 builds → 12 builds (viewer drops off before spike). |
 
 ### The Derivation Rule
 
 > **Keep the soul, reinvent the skin. Change ≥ 2 skin elements to avoid cloning.**
 
-When extracting a blueprint, mark every element as soul or skin. When deriving, verify: "If I remove this element, does the slideshow still trigger the same mechanism for the same reason?" If yes → skin. If no → soul.
+When extracting a blueprint, mark every element as soul or skin. For every Soul element, articulate the **purpose** (why it's locked). For every Skin element, articulate the **constraint** (the boundary within which it can be swapped). If you cannot articulate either, re-examine the classification.
+
+When deriving, verify: "If I remove this element, does the slideshow still trigger the same mechanism for the same reason?" If yes → skin. If no → soul.

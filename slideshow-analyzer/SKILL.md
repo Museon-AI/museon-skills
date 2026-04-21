@@ -1,11 +1,11 @@
 ---
 name: slideshow-analyzer
-description: "TikTok/Instagram slideshow analysis. Analyze any slideshow to extract viral hooks, memes, visual strategy, narrative structure, and reusable blueprints (soul vs skin). Covers both humor-driven (meme) and non-humor (emotional, aspirational, aesthetic) slideshows. Trigger when user mentions analyzing slideshow, deconstructing image-text content, or extracting slideshow patterns."
+description: "TikTok/Instagram slideshow analysis. Analyze any slideshow to extract viral hooks, memes, visual strategy, narrative structure, text CTA hooks, and reusable blueprints (soul vs skin). Covers both humor-driven (meme) and non-humor (emotional, aspirational, aesthetic) slideshows. Trigger when user mentions analyzing slideshow, deconstructing image-text content, or extracting slideshow patterns."
 ---
 
 # Slideshow Analyzer
 
-Analyze any slideshow: what do you see → how is it structured → why would someone share it → what's soul, what's skin.
+Analyze any slideshow: what do you see → how is it structured → what is the text CTA hook → why would someone share it → what's soul, what's skin.
 
 All accumulated knowledge lives in `references/`:
 - **`analysis-playbook.md`** — Four archetypes, trigger types, mechanisms (humor + non-humor), structure rules, ad strategies, soul vs skin framework
@@ -17,7 +17,7 @@ All accumulated knowledge lives in `references/`:
 
 ## Analysis Flow
 
-Eight steps. Do them in order. Steps 4, 5, and 7 are the most important.
+Seven steps. Do them in order. Steps 4 and 6 are the most important.
 
 ### Step 1: Look — What's in each slide?
 
@@ -103,34 +103,19 @@ Identify:
 - **Is there a turn?** (pain→hope, before→after, struggle→resolution)
 - **Is there a product integration?** How naturally does it fit?
 
-### Step 4: What trigger drives shares?
+### Step 4: Text CTA Hook & Sharing Mechanism (MOST IMPORTANT)
 
-First, identify the **trigger type** (see Trigger Types in playbook). Ask in order, stop at first "yes":
+Text content and the first slide's CTA hook are critical drivers for views and shares. Answer at three levels:
 
-1. Is it delivering useful information or proving a result? → **Rational**
-2. Is it building trust through people or identity? → **Social**
-3. Is it selling a desirable lifestyle, aesthetic, or state-of-being? → **Aspirational**
-4. Is it deliberately provoking curiosity, emotion, or laughter? → **Emotional / Instinct**
-5. Is it just documenting or following a trend? → **Behavioral**
+1. **What is the Text CTA Hook?**
+   - Analyze the text on Slide 0. How does it hook the viewer? (e.g., curiosity gap, relatable statement, bold claim, direct command like "come closer").
+   - How does the text content across the slides drive the narrative and encourage swiping/sharing?
 
-A slideshow can stack triggers. Identify all active ones.
+2. **What trigger drives shares?**
+   - Identify the **trigger type** (Rational, Social, Aspirational, Emotional/Instinct, Behavioral).
+   - Pick the **archetype** (Character-Action, Tension-Punchline, Emotional Arc, Mood Showcase).
 
-Then pick the **archetype** (see Four Archetypes in playbook):
-
-| If the slideshow... | Pick |
-|---------------------|------|
-| Makes you laugh slide-by-slide | **Character-Action** |
-| Builds suspense then surprises you | **Tension-Punchline** |
-| Makes you feel something (sad, hopeful, seen) | **Emotional Arc** |
-| Makes you want to save/screenshot for the aesthetic | **Mood Showcase** |
-
-### Step 5: Why would someone share this? (MOST IMPORTANT)
-
-Answer at three levels:
-
-1. **What do you see?** (one-sentence summary of Steps 1-3)
-2. **How does it work?** (what techniques make it land — narrative arc, contrast, continuity, linguistic patterns, atmosphere)
-3. **Why would someone send this to a friend?** Answer:
+3. **Why would someone send this to a friend?**
    - What emotion does the viewer feel?
    - What does sharing say about the sharer?
    - What unspoken truth does this express — the thing everyone feels but nobody says?
@@ -138,12 +123,12 @@ Answer at three levels:
 Match a known mechanism in `analysis-playbook.md`. If none fits, define a new one.
 
 **Humor mechanisms**: Proxy Expression, Forbidden Release, Absurd Intrusion, Escalating Doom Spiral, Parasocial Bait-and-Switch, Dignity Mismatch
-
 **Non-humor mechanisms**: Emotional Mirror, Aspirational Pull, Identity Signal, Transformation Proof, Utility Bookmark
 
 ```
-Trigger type(s): [from Step 4]
-Archetype: [from Step 4]
+Text CTA Hook: [Analysis of Slide 0 text and overall text strategy]
+Trigger type(s): [from Step 4.2]
+Archetype: [from Step 4.2]
 
 Primary mechanism: [name]
 - Viewer emotion: [specific]
@@ -154,7 +139,7 @@ Secondary mechanism(s): [name(s)]
 - Role: [how it supports the primary]
 ```
 
-### Step 6: Commercial Layer — How does the ad work?
+### Step 5: Commercial Layer — How does the ad work?
 
 Identify: ad location (slide # + visual region), insertion strategy (which type from Ad Insertion Strategies in playbook), narrative justification, subtlety (1–5, best ads = 1–3), and product-mechanism fit.
 
@@ -164,7 +149,7 @@ Identify: ad location (slide # + visual region), insertion strategy (which type 
 
 If no ad: where COULD one be inserted, and which strategy fits this archetype?
 
-### Step 7: Extract Soul vs Skin (CRITICAL FOR DERIVATION)
+### Step 6: Extract Soul vs Skin (CRITICAL FOR DERIVATION)
 
 This is the most important output. For every element, answer: **"If I remove or change this, does the slideshow still trigger the same mechanism for the same reason?"** If no → **soul (LOCKED)**. If yes → **skin (OPEN)**.
 
@@ -172,24 +157,25 @@ Must classify these elements:
 
 | Element | Soul or Skin? | This case's value |
 |---------|:---:|---|
-| Trigger type | ? | |
-| Primary mechanism | ? | |
-| Archetype | ? | |
-| Information Format | ? | |
-| Visual Continuity strength | ? | |
-| Linguistic pattern | ? | |
-| Text presence (has text / no text) | ? | |
-| Text rendering spec shared across slides (font family, weight, color rule, size ratio, effects) | ? | |
-| Text position rule (fixed slot / avoid-subject / follow-object / ...) | ? | |
-| Ad insertion strategy | ? | |
-| Vehicle (character/subject) | ? | |
-| Setting | ? | |
-| Specific text content | ? | |
-| Cultural reference | ? | |
-| Specific font pick within the family | ? | |
-| Specific text position on each slide (within the rule) | ? | |
-| Visual style | ? | |
-| Number of slides | ? | |
+| **Text CTA Hook Strategy** (The psychological trap on Slide 0) | ? | |
+| **Trigger type** (The psychological reason people share) | ? | |
+| **Primary mechanism** (How the trigger is delivered) | ? | |
+| **Archetype** (Determines rules, checklist, and vehicle norms) | ? | |
+| **Information Format** (The content logic between slides, e.g., Zoom, List) | ? | |
+| **Visual Continuity strength** (The spatial relationship between slides) | ? | |
+| **Linguistic pattern** (The text template that carries the engagement) | ? | |
+| **Text presence** (Has text / no text) | ? | |
+| **Text rendering spec** (Cross-slide consistency of font family, weight, color rule) | ? | |
+| **Text position rule** (The rule deciding where text lands, e.g., fixed slot) | ? | |
+| **Ad insertion strategy** (How the product connects to the narrative) | ? | |
+| **Vehicle** (The specific character/subject carrying the mechanism) | ? | |
+| **Setting/Environment** (Where the scene takes place, must support the mechanism) | ? | |
+| **Specific text content** (What fills the linguistic pattern slots) | ? | |
+| **Cultural reference** (What cultural context is used) | ? | |
+| **Specific font pick** (Within the chosen family) | ? | |
+| **Specific text position** (On each slide, within the rule) | ? | |
+| **Visual style** (Photo quality, color palette, era) | ? | |
+| **Number of slides** (How many build slides before the spike) | ? | |
 
 **Rule of thumb for text-related rows**: the *shared spec* and the *position rule* are Soul — breaking cross-slide consistency breaks the template. The *specific font pick* within the chosen family and the *specific position* on any single slide (as long as it obeys the rule) are Skin.
 
@@ -197,14 +183,14 @@ Include **transferability**: what products fit this blueprint, what products bre
 
 **See Case 006 in `cases.md` for a complete worked example.** Follow that format.
 
-### Step 8: Output
+### Step 7: Output
 
 Append to `references/cases.md` following the format of existing cases. New cases MUST include:
 
 1. Slide table + "Why it works"
-2. Trigger type + Archetype + Mechanism Extraction (Steps 4-5 output)
-3. Commercial Analysis (Step 6 output)
-4. Soul vs Skin table (Step 7 output)
+2. Text CTA Hook + Trigger type + Archetype + Mechanism Extraction (Step 4 output)
+3. Commercial Analysis (Step 5 output)
+4. Soul vs Skin table (Step 6 output)
 5. Key Tactics + Lesson
 
 If you discovered a new mechanism, tactic, linguistic pattern, or ad insertion strategy, update `references/analysis-playbook.md`.
