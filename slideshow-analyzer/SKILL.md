@@ -17,7 +17,7 @@ All accumulated knowledge lives in `references/`:
 
 ## Analysis Flow
 
-Seven steps. Do them in order. Steps 4 and 6 are the most important.
+Six steps. Do them in order. Steps 4 and 6 are the most important.
 
 ### Step 1: Look — What's in each slide?
 
@@ -183,23 +183,8 @@ Include **transferability**: what products fit this blueprint, what products bre
 
 **See Case 006 in `cases.md` for a complete worked example.** Follow that format.
 
-### Step 7: Output
-
-Append to `references/cases.md` following the format of existing cases. New cases MUST include:
-
-1. Slide table + "Why it works"
-2. Text CTA Hook + Trigger type + Archetype + Mechanism Extraction (Step 4 output)
-3. Commercial Analysis (Step 5 output)
-4. Soul vs Skin table (Step 6 output)
-5. Key Tactics + Lesson
-
-If you discovered a new mechanism, tactic, linguistic pattern, or ad insertion strategy, update `references/analysis-playbook.md`.
-
 ---
 
 ## Updating This Skill
 
-After each session:
-1. New case → append to `references/cases.md`
-2. New mechanism or trigger type → add to `references/analysis-playbook.md`
-3. New tactic or analysis rule → add to relevant section in `references/analysis-playbook.md`
+After each analysis session, append the new case to `references/cases.md` and update `references/analysis-playbook.md` if you discovered a new mechanism, trigger type, tactic, or analysis rule.
