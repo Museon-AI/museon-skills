@@ -7,11 +7,7 @@ description: "TikTok/Instagram slideshow analysis. Analyze any slideshow to extr
 
 Analyze any slideshow: what do you see → how is it structured → what is the text CTA hook → why would someone share it → what's soul, what's skin.
 
-All accumulated knowledge lives in `references/`:
-- **`analysis-playbook.md`** — Four archetypes, trigger types, mechanisms (humor + non-humor), structure rules, ad strategies, soul vs skin framework
-- **`cases.md`** — Every analyzed case with full breakdown and reusable blueprint
-
-**Read `analysis-playbook.md` and `cases.md` before analyzing.**
+Worked examples live in `references/cases.md`. **Read it before analyzing** — it shows the exact output format expected (use Case 006 as the model).
 
 ---
 
@@ -19,32 +15,67 @@ All accumulated knowledge lives in `references/`:
 
 Six steps. Do them in order. Steps 4 and 6 are the most important.
 
+> **Output discipline (applies to every step)**: Each step has a required output template. **Every field is mandatory.** If a field doesn't apply, write `N/A — <one-line reason>` rather than skipping it. Skipping a field counts as analysis failure — go back and fill it.
+
 ### Step 1: Look — What's in each slide?
 
-First, decide whether this slideshow has text (see Text Layer Analysis in playbook):
+#### 1.0 Hook Deconstruction (Slide 0 only — DO THIS FIRST)
+
+Slide 0 is the entire reason the rest of the deck gets watched. Analyze it as a separate artifact before touching the other slides. **Three layers, all mandatory:**
+
+| Layer | What to extract | How to identify |
+|-------|----------------|-----------------|
+| **Text hook** | The exact wording on Slide 0 + which hook type it uses (Curiosity Gap / Direct Command / Relatable Accusation / Bold Claim / Rhetorical Question / Pattern Interrupt / None) | Read the literal copy. If no text, write `N/A — image-only hook`. |
+| **Visual hook** | The single visual element that stops the scroll (e.g., "sad-boy face filling frame", "tiny hamster in cubicle", "split-screen glow vs acne") | Cover the text — what's still doing the work? |
+| **Stop-scroll mechanism** | Why the text + visual COMBINATION makes someone pause. Be specific about the interaction, not just "it's interesting". | If you can't articulate why these two specifically work together, the hook isn't actually working — say so. |
+
+**Required output**:
+
+```
+Slide 0 Hook
+├─ Text hook:   "[exact copy]" — [hook type]
+├─ Visual hook: [the one element doing the visual work]
+└─ Stop-scroll: [why text × visual combination earns the pause]
+```
+
+#### 1.1 Text rendering spec (set-level, only if slideshow has text)
 
 | Text Presence | What to do next |
 |---------------|----------------|
 | **Has text** | Record the **text rendering spec** that is shared across all slides — font family, weight, color, size ratio, alignment, effects, and the **position rule** (e.g., fixed corner, avoid-subject). This spec is Soul. |
-| **No text** | Skip text analysis entirely, focus on visual narrative |
+| **No text** | Skip text spec; the narrative is carried entirely by imagery. |
 
 Do NOT spend time classifying whether text was "baked-in" by the image generator or added as an "overlay" in the publishing tool. In an AI-generation workflow text is always rendered in the image prompt, so the distinction is irrelevant for both analysis and reproduction.
 
-Then for each slide, capture:
+#### 1.2 Per-slide capture (every slide, including Slide 0)
+
+For each slide, capture:
 
 | Field | What to note |
 |-------|-------------|
 | Content | Subject, setting, action, props |
 | Characters | How many? What's their relationship? (accuser→accused, before→after, etc.) |
 | Text | Exact wording, and the specific position on this slide (the shared rendering spec is recorded once for the whole set) |
-| Text format | Caption Bar / Impact Overlay / Minimal serif / Bold statement / No text (see Text Style Recognition in playbook) |
-| Linguistic pattern | What grammatical/rhetorical template? (see Linguistic Patterns in playbook) |
+| Text format | Caption Bar (bold sans on solid bar) / Impact Overlay (ALL CAPS, white + black outline) / Minimal serif (thin, lots of whitespace) / Bold statement (large bold sans, 1–3 words) / No text |
+| Linguistic pattern | The grammatical/rhetorical template (e.g., "X not X-ing", "She said... but...", "POV: ...", single-word label, imperative parasocial) |
 | Visual quality | Polished or raw? Phone snapshot or produced? Illustrated or photographic? |
 | Role | Hook / build / spike / soft-ad / CTA / mood-setter |
 
 Then across all slides:
 - **Do characters span multiple slides?** Are different characters in the same scene separated by the crop?
 - **Is there a visual contrast pattern?** (e.g., split-screen good/bad, before/after, light/dark)
+
+**Required output (Step 1 final)**:
+
+```
+Set-level:
+├─ Text rendering spec: [block from 1.1, or "N/A — no text"]
+├─ Cross-slide characters: [yes/no, who]
+└─ Visual contrast pattern: [type, or "N/A"]
+
+Per-slide table: <one row per slide using the fields above — Content / Characters /
+                  Text / Text format / Linguistic pattern / Visual quality / Role>
+```
 
 ### Step 2: Connect — How do the slides relate?
 
@@ -79,7 +110,15 @@ When you detect a **single-image split** (strongest form), ask three questions:
 | Mood Board / Grid | Multi-image collage per slide | Yes between slides |
 | Atmospheric Progression | One mood scene per slide, building an arc | No |
 
-(See Slide Structure in playbook for full definitions and examples)
+**Required output (Step 2 final)**:
+
+```
+Visual Continuity:    [Strong (zoom/pan) | Medium (shared scene) | Weak (thematic)]
+└─ Evidence:          [the specific cross-slide signal — e.g., "lawyer's arm crosses crop boundary"]
+
+Information Format:   [one of the 10 above]
+└─ Evidence:          [why this format and not a neighbor — e.g., "shuffleable = List, not Story"]
+```
 
 ### Step 3: Story — What's the narrative arc?
 
@@ -103,6 +142,15 @@ Identify:
 - **Is there a turn?** (pain→hope, before→after, struggle→resolution)
 - **Is there a product integration?** How naturally does it fit?
 
+**Required output (Step 3 final)**:
+
+```
+Sequence map:    [Slide 0: role] → [Slide 1: role] → ... → [Slide N: role]
+Spike / Peak:    Slide [#] — [why this is the strongest moment]
+Turn (if any):   [from X → to Y, at slide #]   OR   "N/A — no turn"
+Linguistic pattern carrying the arc: [the template]
+```
+
 ### Step 4: Text CTA Hook & Sharing Mechanism (MOST IMPORTANT)
 
 Text content and the first slide's CTA hook are critical drivers for views and shares. Answer at three levels:
@@ -111,80 +159,177 @@ Text content and the first slide's CTA hook are critical drivers for views and s
    - Analyze the text on Slide 0. How does it hook the viewer? (e.g., curiosity gap, relatable statement, bold claim, direct command like "come closer").
    - How does the text content across the slides drive the narrative and encourage swiping/sharing?
 
-2. **What trigger drives shares?**
-   - Identify the **trigger type** (Rational, Social, Aspirational, Emotional/Instinct, Behavioral).
-   - Pick the **archetype** (Character-Action, Tension-Punchline, Emotional Arc, Mood Showcase).
+2. **What trigger drives shares?** Pick from the five types (decision flow — stop at the first "yes"):
+   1. Delivering useful information or proving a result? → **Rational**
+   2. Building trust through people or identity? → **Social**
+   3. Selling a desirable lifestyle, aesthetic, or state-of-being? → **Aspirational**
+   4. Provoking curiosity, suspense, or scroll-stopping reflex? → **Instinct**
+   5. Making the viewer feel/laugh/recognize themselves? → **Emotional**
+
+   Then pick the **archetype**:
+   - **Character-Action** — laugh slide-by-slide
+   - **Tension-Punchline** — builds suspense then surprises
+   - **Emotional Arc** — makes you feel something
+   - **Mood Showcase** — makes you want to save for the aesthetic
 
 3. **Why would someone send this to a friend?**
    - What emotion does the viewer feel?
    - What does sharing say about the sharer?
    - What unspoken truth does this express — the thing everyone feels but nobody says?
 
-Match a known mechanism in `analysis-playbook.md`. If none fits, define a new one.
+Match a known mechanism (one-line definitions below). If none fits, define a new one and note it.
 
-**Humor mechanisms**: Proxy Expression, Forbidden Release, Absurd Intrusion, Escalating Doom Spiral, Parasocial Bait-and-Switch, Dignity Mismatch
-**Non-humor mechanisms**: Emotional Mirror, Aspirational Pull, Identity Signal, Transformation Proof, Utility Bookmark
+> ⚠️ **Anti-pattern — don't reflexively pick a "positive" mechanism just because the slideshow has an ad.** Many ad-bearing slideshows are built on **negative** mechanisms (Emotional Mirror of pain, Forbidden Release, Doom Spiral, Dignity Mismatch). The ad sits at the END as relief or punchline, but the **Soul is the negative emotion / tension, not the relief**. Misclassifying a "guy spirals into shame, then finds product X" deck as *Transformation Proof / Aspirational Pull* will produce derivations that read as ads instead of relatable content. **Test**: cover the ad slide. If the remaining slides feel negative/tense/uncomfortable, the mechanism is negative — keep it that way.
+
+| Mechanism | The viewer feels | Example |
+|---|---|---|
+| **Proxy Expression** ("Say it for me") | "Finally someone said it" | Case 004 (cat: "Brain not braining") |
+| **Forbidden Release** ("I wish I could do that") | Vicarious satisfaction at a social taboo | Case 001 (hamster middle finger) |
+| **Absurd Intrusion** ("That doesn't belong there") | Delight at out-of-place subject | Case 001 (tiny hamster in cubicle) |
+| **Escalating Doom Spiral** ("It keeps getting worse") | Dark humor catharsis at compounding bad | Case 004 (descent across slides) |
+| **Parasocial Bait-and-Switch** ("Come closer, I have a secret") | Curiosity → "I got played but it was fun" | Case 006 (monkey plush zoom) |
+| **Dignity Mismatch** ("Dramatically unimportant") | Amused recognition of mundane elevated to high gravitas | Case 007 (classical painting + TikTok) |
+| **Emotional Mirror** ("I feel seen") | Validation — "this is exactly what it's like" | Same person split-screen: top half glowing/happy, bottom half defeated with acne — no text needed |
+| **Aspirational Pull** ("I want that life") | Longing + motivation | Cinematic dark shots progressing from lonely bedroom → city skyline → airplane window |
+| **Identity Signal** ("This is who I am") | Tribe belonging | Grid collage of niche aesthetic: dark romance novels + fantasy art + couple silhouettes |
+| **Transformation Proof** ("Look what happened") | Hope — "if they can, maybe I can" | Pet in shelter cage (before) → same pet on plush bed at home (after) |
+| **Utility Bookmark** ("Save this for later") | Practical value worth keeping | Multi-angle workspace/tool grid that's both useful reference and aesthetic |
+
+**Required output (Step 4 final)**:
 
 ```
-Text CTA Hook: [Analysis of Slide 0 text and overall text strategy]
-Trigger type(s): [from Step 4.2]
-Archetype: [from Step 4.2]
+Hook (carry over from Step 1.0, do NOT collapse into one line):
+├─ Text hook:        "[exact copy]" — [hook type]
+├─ Visual hook:      [the one element doing the visual work]
+└─ Stop-scroll:      [why text × visual combination earns the pause]
 
-Primary mechanism: [name]
-- Viewer emotion: [specific]
-- Sharing motive: [what sharing says about the sharer]
-- Unspoken truth: [the thing everyone feels but nobody says]
+Trigger type(s):     [primary], [secondary if any]
+Archetype:           [Character-Action / Tension-Punchline / Emotional Arc / Mood Showcase]
+
+Primary mechanism:   [name]
+├─ Viewer emotion:   [specific]
+├─ Sharing motive:   [what sharing says about the sharer]
+└─ Unspoken truth:   [the thing everyone feels but nobody says]
 
 Secondary mechanism(s): [name(s)]
-- Role: [how it supports the primary]
+└─ Role:             [how it supports the primary]
 ```
 
 ### Step 5: Commercial Layer — How does the ad work?
 
-Identify: ad location (slide # + visual region), insertion strategy (which type from Ad Insertion Strategies in playbook), narrative justification, subtlety (1–5, best ads = 1–3), and product-mechanism fit.
+**Mandatory pre-scan (do this BEFORE deciding "has ad / no ad")**: Walk through every slide and check for any of:
 
-**Humor-native strategies**: Ad-as-punchline, Ad-as-resolution, Ad-as-reward, Ad-as-background, Ad-as-final-slide
+- Product names (any brand-like word, including invented ones)
+- Logos / wordmarks (even tiny corner marks)
+- Screenshots of apps, websites, or product UI
+- URLs / handles / @mentions / "link in bio"
+- CTA copy ("try X", "use Y", "I switched to Z", "get [it] here")
+- A character visibly *using* a recognizable product
+- A "thank god [X] saved me" type line that names anything
 
-**Non-humor strategies**: Ad-as-cause, Ad-as-lifestyle-element, Ad-as-list-item, Ad-as-curation-pick, Ad-as-step
+**Default to "has ad". Only conclude "no ad" after you have explicitly checked every slide and found none of the above.** If you find an ad, name the slide it appears on.
 
-If no ad: where COULD one be inserted, and which strategy fits this archetype?
+Then match an insertion strategy:
+
+**Humor-native** (Character-Action / Tension-Punchline):
+- **Ad-as-punchline** — product IS the joke's payoff (Case 006)
+- **Ad-as-resolution** — product solves the character's problem (Case 007)
+- **Ad-as-reward** — after emotional journey, product appears as comfort (Case 004)
+- **Ad-as-background** — product appears naturally without being called out
+- **Ad-as-final-slide** — narrative slides, then a separate ad slide (Case 001)
+
+**Non-humor** (Emotional Arc / Mood Showcase):
+- **Ad-as-cause** — product is why the "good" state exists; before/after implies causation
+- **Ad-as-lifestyle-element** — product appears as natural part of the showcased lifestyle
+- **Ad-as-list-item** — product is one item in a curated list alongside genuine recs
+- **Ad-as-curation-pick** — product featured as part of an aesthetic mood board
+- **Ad-as-step** — product embedded as one step in a how-to/process
+
+**If the slideshow has an ad**, output:
+
+```
+Ad location:           Slide [#], [visual region — e.g., low-density area top-right]
+Insertion strategy:    [strategy name]
+Narrative justification: [one sentence: why this product belongs here in this story]
+Subtlety score:        [1–5, where 1 = invisible, 5 = overt. Best ads land at 1–3]
+Product-mechanism fit: [why this product is structurally able to fill this slot;
+                        what other products would fit; what would break]
+Removable?             [Yes/No. If removing the ad doesn't break the slideshow, the
+                        ad is NOT structurally integrated — flag it.]
+```
+
+**If the slideshow has NO ad**, output:
+
+```
+Best insertion point:  Slide [#], [strategy name]
+Why this slot:         [why this slide is the natural product moment for this archetype]
+Product fit profile:   [what kind of product would naturally fill this slot —
+                        category, function, tone — not specific brands]
+Anti-fit:              [what kinds of products would break the mechanism here]
+```
+
+**Quality gate**: if you cannot fill *any* row above with conviction, the ad is bolted-on (or the slideshow has no commercial slot to begin with). Say so explicitly rather than fabricating justification.
 
 ### Step 6: Extract Soul vs Skin (CRITICAL FOR DERIVATION)
 
 This is the most important output. For every element, answer: **"If I remove or change this, does the slideshow still trigger the same mechanism for the same reason?"** If no → **soul (LOCKED)**. If yes → **skin (OPEN)**.
 
-Must classify these elements:
+Must classify these elements. The **Default** column shows the standard classification — only override it if you have a specific reason and note that reason in `This case's value`.
 
-| Element | Soul or Skin? | This case's value |
+| Element | Default | This case's value |
 |---------|:---:|---|
-| **Text CTA Hook Strategy** (The psychological trap on Slide 0) | ? | |
-| **Trigger type** (The psychological reason people share) | ? | |
-| **Primary mechanism** (How the trigger is delivered) | ? | |
-| **Archetype** (Determines rules, checklist, and vehicle norms) | ? | |
-| **Information Format** (The content logic between slides, e.g., Zoom, List) | ? | |
-| **Visual Continuity strength** (The spatial relationship between slides) | ? | |
-| **Linguistic pattern** (The text template that carries the engagement) | ? | |
-| **Text presence** (Has text / no text) | ? | |
-| **Text rendering spec** (Cross-slide consistency of font family, weight, color rule) | ? | |
-| **Text position rule** (The rule deciding where text lands, e.g., fixed slot) | ? | |
-| **Ad insertion strategy** (How the product connects to the narrative) | ? | |
-| **Vehicle** (The specific character/subject carrying the mechanism) | ? | |
-| **Setting/Environment** (Where the scene takes place, must support the mechanism) | ? | |
-| **Specific text content** (What fills the linguistic pattern slots) | ? | |
-| **Cultural reference** (What cultural context is used) | ? | |
-| **Specific font pick** (Within the chosen family) | ? | |
-| **Specific text position** (On each slide, within the rule) | ? | |
-| **Visual style** (Photo quality, color palette, era) | ? | |
-| **Number of slides** (How many build slides before the spike) | ? | |
+| **Text CTA Hook Strategy** (The psychological trap on Slide 0) | Soul | |
+| **Trigger type** (The psychological reason people share) | Soul | |
+| **Primary mechanism** (How the trigger is delivered) | Soul | |
+| **Archetype** (Determines rules, checklist, and vehicle norms) | Soul | |
+| **Information Format** (The content logic between slides, e.g., Zoom, List) | Soul | |
+| **Visual Continuity strength** (The spatial relationship between slides) | Soul | |
+| **Linguistic pattern** (The text template that carries the engagement) | Soul | |
+| **Text presence** (Has text / no text) | Soul | |
+| **Text rendering spec** (Cross-slide consistency of font family, weight, color rule) | Soul | |
+| **Text position rule** (The rule deciding where text lands, e.g., fixed slot) | Soul | |
+| **Ad insertion strategy** (How the product connects to the narrative) | Soul* | |
+| **Vehicle credibility profile** (when vehicle is human: the look/aura *tier* that earns the hook — e.g., "hot finance bro", "sad-boy aesthetic", "relatable nerdy girl", "intimidating professor") | **Soul** (when human) / N/A (when animal/object) | |
+| **Vehicle** (The specific character/subject carrying the mechanism. When human: specific job/age/ethnicity/outfit *within* the credibility tier above) | Skin | |
+| **Setting/Environment** (Where the scene takes place, must support the mechanism) | Skin | |
+| **Specific text content** (What fills the linguistic pattern slots) | Skin | |
+| **Cultural reference** (What cultural context is used) | Skin | |
+| **Specific font pick** (Within the chosen family) | Skin | |
+| **Specific text position** (On each slide, within the rule) | Skin | |
+| **Visual style** (Photo quality, color palette, era) | Skin | |
+| **Number of slides** (How many build slides before the spike) | Skin | |
 
-**Rule of thumb for text-related rows**: the *shared spec* and the *position rule* are Soul — breaking cross-slide consistency breaks the template. The *specific font pick* within the chosen family and the *specific position* on any single slide (as long as it obeys the rule) are Skin.
+\* Ad insertion strategy is Soul when the ad IS the mechanism (e.g., Ad-as-punchline in Case 006); Skin when the ad is appended after the narrative (e.g., Ad-as-final-slide in Case 001). Decide per case.
 
-Include **transferability**: what products fit this blueprint, what products break it.
+**When to override the default**: a Skin element becomes Soul when this specific case relies on it for the mechanism to fire (e.g., Case 007's *cultural reference* "19th-century courtroom painting" is Soul because Dignity Mismatch needs high-gravitas art — a modern photo would break it). When you override, write the reason in the value column.
 
-**See Case 006 in `cases.md` for a complete worked example.** Follow that format.
+**For each Soul row**, articulate the **purpose** — the specific reason it's locked (what would break if you changed it). **For each Skin row**, articulate the **constraint** — the boundary within which it can be swapped (e.g., "Vehicle: any small animal with an expressive face"). If you can't articulate either, re-examine the classification.
+
+**Required output (Step 6 final)**:
+
+```
+Soul vs Skin table:  <fully filled, every row has either the case value + purpose,
+                      or the case value + constraint>
+
+Transferability:
+├─ Products that FIT:    [category descriptors — e.g., "any productivity tool with
+│                          a 'replaces manual effort' angle"]
+├─ Products that BREAK:  [category descriptors — what kills the mechanism]
+└─ Audience required:    [who must be the target audience for this blueprint to land]
+```
+
+#### Handoff note for derivation
+
+This Soul vs Skin table is the canonical input for `slideshow-grid-prompter`. When the prompter (or any human deriving a variant) uses this blueprint, **they MUST go through every Soul row and confirm that the new design has a concrete implementation of it** — not just "I changed N skin elements". A derivation that swaps Skin freely but quietly drops a Soul (e.g., turning a "negative emotion mirror" into a "positive product testimonial") is a broken derivation, not a creative one.
+
+When you finish this Step 6, end the analysis with one explicit line:
+
+```
+Derivation rule: Keep ALL Soul rows. Replace ≥2 Skin rows. Verify Soul row-by-row before generating.
+```
 
 ---
 
 ## Updating This Skill
 
-After each analysis session, append the new case to `references/cases.md` and update `references/analysis-playbook.md` if you discovered a new mechanism, trigger type, tactic, or analysis rule.
+After each analysis session, append the new case to `references/cases.md` (follow Case 006's format). If you discover a new mechanism, trigger type, ad strategy, or analysis rule, also surface it in the SKILL.md tables above so future analyses can match against it.
