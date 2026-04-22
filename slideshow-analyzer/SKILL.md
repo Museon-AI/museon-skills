@@ -379,6 +379,7 @@ Must classify these elements. The **Default** column shows the standard classifi
 | **Text position rule** (The rule deciding where text lands, e.g., fixed slot) | Soul | |
 | **Ad insertion strategy** (How the product connects to the narrative) | Soul* | |
 | **Vehicle credibility profile** (when vehicle is human: the look/aura *tier* that earns the hook — e.g., "hot finance bro", "sad-boy aesthetic", "relatable nerdy girl", "intimidating professor") | **Soul** (when human) / N/A (when animal/object) | |
+| **Visual Hook Persona** (when vehicle is human AND the specific appearance is load-bearing for the stop-scroll mechanism: the precise physical description that makes the hook fire — face features, hair, outfit, props, body language. Distinct from credibility tier: tier says *what kind* of person; Visual Hook Persona says *exactly what they look like*. Classify as Soul when the visual contrast between appearance and text is itself the hook — e.g., "looks flawless while claiming to be struggling". Classify as Skin when appearance is interchangeable within the tier.) | **Soul** (when appearance IS the contrast/hook) / Skin (when appearance is interchangeable within the tier) / N/A (when animal/object) | |
 | **Vehicle** (The specific character/subject carrying the mechanism. When human: specific job/age/ethnicity/outfit *within* the credibility tier above) | Skin | |
 | **Setting/Environment** (Where the scene takes place, must support the mechanism) | Skin | |
 | **Specific text content** (What fills the linguistic pattern slots) | Skin | |
@@ -414,6 +415,7 @@ Must classify these elements. The **Default** column shows the standard classifi
 | Text position rule | Soul | [the rule] | [what breaks if changed] |
 | Ad insertion strategy | Soul or Skin | [strategy] | [purpose or constraint, depending on classification] |
 | Vehicle credibility profile | Soul (if human) / N/A | [look/aura tier, or N/A] | [purpose or N/A reason] |
+| Visual Hook Persona | Soul or Skin or N/A | [exact appearance description, or N/A] | [if Soul: what visual contrast breaks if changed; if Skin: swap boundary within the credibility tier] |
 | Vehicle | Skin | [the specific subject] | [the swap boundary, e.g., "any small animal with expressive face"] |
 | Setting/Environment | Skin | [the place] | [swap boundary] |
 | Specific text content | Skin | [the words] | [swap boundary — must fit the linguistic pattern] |
@@ -462,7 +464,7 @@ The analysis is **not done** until a Markdown file exists on disk. Steps 1–6 p
    - [ ] Section 1.2 per-slide table has one row per slide, every column filled
    - [ ] Sections 4.1–4.4 are present as separate sub-blocks (hook NOT collapsed into one line)
    - [ ] Section 5.1 has the per-slide pre-scan table covering every slide
-   - [ ] Section 6.1 has all 19+ rows of the Soul/Skin table filled (case value AND purpose/constraint, not blank)
+   - [ ] Section 6.1 has all 20+ rows of the Soul/Skin table filled (case value AND purpose/constraint, not blank)
    - [ ] Section 6.4 ends with the literal "Derivation rule:" line
 5. **After saving**, print a one-line confirmation in chat: `Analysis saved to <path>` (no other commentary needed — the file IS the deliverable).
 
@@ -473,3 +475,12 @@ The analysis is **not done** until a Markdown file exists on disk. Steps 1–6 p
 ## Updating This Skill
 
 After each analysis session, append the new case to `references/cases.md` (follow Case 006's format). If you discover a new mechanism, trigger type, ad strategy, or analysis rule, also surface it in the SKILL.md tables above so future analyses can match against it.
+
+### Visual Hook Persona — Classification Guide
+
+This element was added to capture cases where the vehicle's specific appearance is itself a stop-scroll mechanism, not just a credibility signal. Use the following decision tree:
+
+1. **Cover the text on Slide 0.** Does the person's appearance alone create a visual tension or contrast that makes you want to know more? If yes → candidate for Soul.
+2. **Ask: would swapping to a different-looking person within the same credibility tier break the hook?** Example: if the hook is "looks flawless while claiming to be struggling", then swapping to someone who *looks* like they are struggling removes the contrast → **Soul**. If the hook is purely narrative (the text does all the work), appearance is interchangeable → **Skin**.
+3. **For Soul classification**, document the exact appearance elements that carry the contrast: face/makeup style, hair, outfit palette, props, body language. These must be preserved (or consciously adapted) in any derivation.
+4. **For Skin classification**, document the swap boundary: what range of appearances still works within the credibility tier.

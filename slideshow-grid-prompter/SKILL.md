@@ -21,6 +21,7 @@ Identify:
 - What elements are open (skin)
 - How the user's custom instructions modify the skin or topic
 - **What visual style is being used** (realistic/photographic OR illustrated/stylized) — this determines which Constraint 3 path to follow
+- **Whether a Visual Hook Persona is present in the Soul rows** — if the source analysis contains a `Visual Hook Persona` row classified as Soul, extract its exact appearance description. This description is a locked constraint that must be carried into the Character Consistency Block, not discarded during skin substitution.
 
 ### Step 2: Find a Solution Scenario and Make Skin Decisions
 The core logic is: **Product → Solution Scenario → Skin Decisions**.
@@ -30,8 +31,12 @@ The core logic is: **Product → Solution Scenario → Skin Decisions**.
    - *Setting*: Where does this scenario happen?
    - *Content/Text*: What specific pain points or thoughts fit this scenario?
    - *Visual Style*: What aesthetic best conveys the mood of this scenario?
-3. **Apply Custom Instructions**: Integrate any specific requests from the user (e.g., specific character type or tone).
-4. **Anti-Clone**: Ensure you have changed enough Skin elements so the new slideshow doesn't look like a copy of the original template.
+3. **Handle Visual Hook Persona (critical — do not skip if present)**:
+   - If the source Soul table contains a `Visual Hook Persona` classified as **Soul**, the appearance elements it describes are **locked**. They must be preserved in the Character Consistency Block of the new prompt. You may adapt them to the new scenario (e.g., change hair color or outfit to fit the new character's context), but you MUST NOT replace the underlying visual contrast logic (e.g., if the soul is "looks polished while claiming to struggle", the new character must also look polished, not visibly exhausted).
+   - If the source Soul table contains a `Visual Hook Persona` classified as **Skin**, you may freely substitute appearance within the swap boundary described in the constraint column.
+   - If no `Visual Hook Persona` row exists in the source (older analysis), treat it as unclassified and apply the decision tree from the slideshow-analyzer skill to determine whether the original appearance is load-bearing before discarding it.
+4. **Apply Custom Instructions**: Integrate any specific requests from the user (e.g., specific character type or tone). Note: custom instructions may override Skin elements but MUST NOT override Soul elements, including a Soul-classified Visual Hook Persona.
+5. **Anti-Clone**: Ensure you have changed enough Skin elements so the new slideshow doesn't look like a copy of the original template.
 
 ### Step 3: Design the Grid Layout
 The grid layout must be chosen so that the **overall image ratio matches a standard AI generation ratio**. This ensures the AI does not distort panels, add extra panels, or insert white borders.
@@ -224,6 +229,7 @@ If the slideshow features a recurring character, you MUST lock the character's i
 - **Key distinguishing features** (e.g., "shoulder-length black hair with bangs, small mole below left eye, slightly crooked nose")
 - **Wardrobe anchor** (e.g., "wearing the same oversized grey hoodie and black leggings throughout all panels")
 - **One physical imperfection** (e.g., "slightly uneven eyebrows", "a few flyaway hairs", "chipped nail polish") — this is critical for breaking the AI "perfect person" default
+- **Visual Hook Persona lock (if Soul-classified)**: If the source analysis has a Soul-classified `Visual Hook Persona`, copy its exact appearance elements here. These override any scenario-driven character decisions. The visual contrast logic (e.g., "looks polished despite struggling") must be explicitly stated so the AI renders the right emotional register. Example: `She looks completely put-together: flawless clean-girl makeup, smooth styled hair, chic minimal outfit. This visual polish is intentional — it must contrast sharply with the pain described in the text.`
 
 **For Path B (Illustrated)**, define:
 - **Character design sheet** (e.g., "a young woman with short spiky blue hair, round face, large green eyes, small nose")
@@ -253,6 +259,7 @@ Describe each panel explicitly: `Panel 1 (Top Left): [Scene description]. [Font 
 ### Step 6: Validate
 - **Anti-clone test**: Is it distinct from the original template?
 - **Soul preservation test**: Does it keep the trigger, mechanism, and unspoken truth?
+- **Visual Hook Persona test**: If the source has a Soul-classified `Visual Hook Persona`, does the Character Consistency Block explicitly preserve the visual contrast logic? A character who looks "visibly exhausted" when the soul requires "looks polished while struggling" is a failed derivation.
 - **Grid format test**: Does the prompt clearly define the grid structure, no-gap rule, TikTok font specs?
 - **Style test (Path A)**: Run through the Path A Checklist. Every check must pass.
 - **Style test (Path B)**: Run through the Path B Checklist. Every check must pass.
@@ -278,6 +285,7 @@ The deliverable is **only the raw image generation prompt** — no derivation de
 8. **Perfect poses** — "Smiling at camera" or "looking confident" = stock photo. "Caught mid-sentence", "squinting at screen", "one hand in hair while reading phone" = UGC.
 9. **Using "photorealistic"** — Counterintuitively, this word makes images LESS realistic. It triggers the AI's "make it look impressive" mode. Use `RAW iPhone aesthetic` instead.
 10. **Forgetting physical imperfections** — Real people have flyaway hairs, slightly uneven features, chipped nails. AI defaults to symmetrical perfection. You must explicitly prompt for at least one imperfection per character.
+11. **Discarding a Soul-classified Visual Hook Persona** — The most common derivation failure. When a source analysis marks Visual Hook Persona as Soul (e.g., "looks flawless while claiming to struggle"), replacing the polished character with a visibly exhausted one removes the core visual tension that makes the hook work. Always check the Soul table before writing the Character Consistency Block.
 
 ### Path B (Illustrated) Mistakes
 11. **Style drift between panels** — The #1 problem for illustrated slideshows. If the global style block is vague (just "comic style"), different panels will look like different artists drew them. Be extremely specific: name the style, an artist reference, line weight, color palette, and shading method.
