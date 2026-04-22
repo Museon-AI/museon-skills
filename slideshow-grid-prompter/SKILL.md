@@ -265,8 +265,90 @@ Describe each panel explicitly: `Panel 1 (Top Left): [Scene description]. [Font 
 - **Style test (Path B)**: Run through the Path B Checklist. Every check must pass.
 - **Vibe test**: For Path A — does it sound like describing a camera roll, or a photoshoot brief? For Path B — does it sound like a commission brief for a specific artist, or a vague "make it look cool" request?
 
-### Step 7: Output
-The deliverable is **only the raw image generation prompt** — no derivation decisions, no anti-clone checks, no captions, no hashtags. Save the prompt as a plain text file (`.md`) to the working directory. The file should contain nothing but the master image prompt itself. **DO NOT generate multiple variants unless explicitly asked.** The goal is to produce ONE perfect, comprehensive prompt that synthesizes the Soul, Skin, Product, and custom instructions.
+### Step 7: Visual Generation Layer (System Prompt + User Prompt)
+After generating the Master Grid Prompt, you MUST also generate the **Visual Generation Layer** for per-slide generation. This is a two-part output:
+
+1. **System Prompt (LOCKED)**: Output the standard System Prompt exactly as written below. Do not modify it. It enforces the rules for inheriting from a reference image (ethnicity, outfit style, grooming) while generating a new face and maintaining UGC authenticity.
+2. **User Prompt Templates**: Generate a specific User Prompt for each slide in the grid, following the format below. The User Prompt defines the specific scene, body language, text overlay, and one real-world imperfection for that slide.
+
+#### Standard System Prompt (Output this exactly)
+```
+You are generating a single UGC-style vertical phone photo for a TikTok or Instagram Stories slideshow.
+
+REFERENCE IMAGE RULES
+A reference image is provided. Apply the following inheritance logic:
+
+LOCK (inherit from reference):
+- The overall visual aesthetic and "vibe" of the person: the level of polish, grooming, and put-together-ness
+- The UGC authenticity level: how casual, how unposed, how "camera-roll" the photo feels
+- The general color temperature and tonal mood
+- **Ethnicity and skin tone** — read the ethnicity profile from the reference image (e.g., mixed/Latina, East Asian, Black, South Asian, white/Caucasian, etc.) and generate a new person with the SAME ethnicity profile. Do NOT shift to a different ethnicity under any circumstances. Note: ethnicity is independent of hairstyle — do not associate hair texture changes with ethnicity changes.
+- **Outfit style register** — identify the clothing style category in the reference (e.g., strapless/off-shoulder/fitted crop = body-conscious minimalist; blazer = polished professional; etc.) and generate a variation within the same style category. The new outfit must carry the same visual signal as the reference. Do NOT shift to a different style register (e.g., if reference is body-conscious, do not generate oversized/academic/cozy clothing).
+
+DO NOT COPY (generate as variation):
+- **The exact face or identity** — generate a COMPLETELY NEW PERSON with clearly different facial features, different face shape, and different hair texture from the reference. The new person must be visually distinct and recognizable as a different individual. Do NOT reproduce the face from the reference image under any circumstances.
+- **Hair** — use a different hair texture and style from the reference (e.g., if reference has tight curls, use sleek blowout or loose waves instead). Hair color should remain in the same natural color family as the reference. IMPORTANT: changing hair texture does NOT change ethnicity — keep ethnicity locked regardless of hair variation.
+- The exact outfit — vary color/cut while keeping the same style register
+- The exact prop — vary the specific item while keeping the same lifestyle-quality signal
+- The exact setting — use the scene described in the User Prompt
+
+PHOTO AUTHENTICITY RULES
+This photo must look like it was pulled from a real person's camera roll.
+- Shot on iPhone 13 or 14
+- Lighting from the actual environment described — NO artificial fill light, soft boxes, or studio lighting
+- Slight grain in shadow areas
+- Auto white-balance (may be slightly off)
+- Visible skin texture — no airbrushing
+- Composition slightly imperfect: marginally off-center, or slightly tilted horizon, or slightly awkward crop
+- One real-world imperfection in the environment — the specific type is defined in the User Prompt
+
+FORBIDDEN: bokeh, cinematic lighting, color grading, studio lighting, 8K, ultra HD, sharp focus, perfect symmetry, stock photo composition, photoshoot feel, photorealistic.
+
+CHARACTER VISUAL HOOK PERSONA (LOCKED — DO NOT MODIFY)
+
+ATTRACTIVENESS (non-negotiable):
+The person must be conventionally attractive with striking facial features — symmetrical face, defined bone structure, clear skin. This is not optional. The goal is a person who stops the scroll on appearance alone, before the viewer reads the text. Generate the most visually appealing version of this character type. Do NOT generate an average-looking or plain-featured person.
+
+GROOMING & MAKEUP:
+Inherit the grooming and makeup style from the reference image. Match the overall makeup register (e.g., natural/clean-girl, glam, no-makeup look) and hair styling level (e.g., styled and voluminous, sleek, etc.). Generate a variation within the same grooming register — do not shift to a completely different makeup style or hair treatment.
+
+OUTFIT STYLE:
+Inherit the outfit style register from the reference image (see LOCK rules above). Generate a variation within the same style category — vary the specific color, fabric, or cut detail, but maintain the same visual signal. Accessories should match the overall aesthetic register of the reference (e.g., if reference has delicate gold jewelry, keep delicate gold jewelry).
+
+BODY LANGUAGE: Follow the User Prompt. Body language and facial expression must be consistent with the emotional narrative described in the User Prompt. Do not default to any fixed expression.
+
+THIS VISUAL POLISH IS INTENTIONAL AND LOAD-BEARING. The person's overall appearance (attractiveness, grooming, outfit) must contrast with the struggle described in the text. A person who looks visibly plain or student-like removes the core visual tension of the hook.
+
+TEXT OVERLAY RULES
+- Font: bold sans-serif (TikTok Sans style)
+- Color: white with black outline OR black text on white rounded-rectangle caption box
+- NO drop shadows, NO gradients, NO glow effects
+- Render text exactly as written — do not paraphrase
+
+OUTPUT: No borders. No watermarks. No padding.
+```
+
+#### User Prompt Format (Generate one per slide)
+```
+Scene: [Describe the setting and camera angle]
+
+Subject: [Describe what the person is doing, or what the main focus of the shot is if no person is present]
+
+Body language: [Describe the expression and posture — MUST match the narrative beat]
+
+Environment details: [List 3-4 specific mundane details, including ONE specific real-world imperfection like a smudge, tangled cable, or messy desk]
+
+Text overlay:
+- Position: [Where the text should be placed]
+- Text: "[Exact text to render]"
+```
+
+### Step 8: Output
+The deliverable is a plain text file (`.md`) saved to the working directory. It MUST contain:
+1. **Section A: Master Grid Prompt** (from Step 5)
+2. **Section B: System Prompt + Per-Slide User Prompts** (from Step 7)
+
+Do not include derivation decisions, anti-clone checks, or extra commentary in the final file. The goal is to produce ONE perfect, comprehensive generation kit that synthesizes the Soul, Skin, Product, and custom instructions.
 
 ---
 
