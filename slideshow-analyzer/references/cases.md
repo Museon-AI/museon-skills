@@ -220,7 +220,7 @@ Secondary mechanism: Self-Referential Humor
 - **Two different characters** with accuser→accused relationship, separated by the crop
 - **Single-image split (strong continuity)**: The painting is one continuous scene cropped into two frames. The lawyer's arm crosses the slide boundary. Swiping = panning from accuser to accused.
 - **Ad space**: The right side of the painting has a bright wall area above the seated figure — low information density region where the product screenshot sits naturally.
-- **Ad-as-justification**: The product (Paperpal) is the reason the character "deserves a break" — the ad resolves the narrative tension.
+- **Ad justification**: "I deserve a little break" connects the accusation (procrastinating) to the defense (I already used Paperpal to finish my work).
 
 ```
 Primary mechanism: "Say it for me" (Proxy Expression via Historical Anachronism)
@@ -337,6 +337,76 @@ Secondary mechanism: "That doesn't belong there" (Absurd Intrusion)
 4. **Anthropomorphic accessories**: Headphones, backpack, backwards cap, dumbbell reinforce "hamster living human life" absurdity
 
 **Lesson**: Confirms Case 001 template is highly replicable — swap the product and it works. Exposes Ad-as-final-slide limitation: separation between ad and narrative is noticeable (subtlety 4/5), less natural than Ad-as-punchline (Case 006) or Ad-as-reward (Case 004). To improve: place product within a narrative slide scene (Ad-as-background) instead of a separate slide.
+
+---
+
+## Case 009: Study Methods List "The most overpowered study methods" (soft-ad for QANDA)
+
+**Archetype**: Mood Showcase | **Trigger**: Rational (education/proof) + Aspirational (studygram aesthetic) | **Info Format**: List | **Visual Continuity**: Weak (thematic)
+
+**Format**: 5 slides, portrait (~9:16), real phone photos with platform text overlay
+
+| # | Role | Content | Text |
+|---|------|---------|------|
+| 0 | Hook | Two math test papers scored 100 with "Excellent!" in red ink, on wooden desk | "The most overpowered study methods >>" |
+| 1 | List item | Biology textbook (brain anatomy), notebook with colorful notes, iPad, pencil case on white bedsheet | "Blurting" / "Best for:" / "Biology ✏️ Chemistry 🧪" |
+| 2 | List item | Anatomy textbook, dense colorful handwritten notes, periodic table at edge, dark desk | "Feynman technique" / "Best for:" / "Calculus 🧮 History 🏛" |
+| 3 | List item | Laptop, desk lamp, candle, notebook, pen — nighttime study atmosphere | "Pomodoro method" / "Best for:" / "Writing ✍️ Reading 📖" |
+| 4 | Soft-ad + CTA | iPhone showing Spotify "Binaural Study Music" playlist, QANDA logo on right, dark fabric background | "QANDA greatly improved my learning efficiency!" / "Tag a friend who needs this!" |
+
+**Why it works**: The proof-first hook (perfect scores) establishes credibility before the list even begins. Each method slide follows an identical template — [Method Name] + "Best for:" + [Subjects with emoji] — creating a "study card" feel that maximizes saveability. The studygram aesthetic (real phone photos of curated study desks with warm lighting) elevates pure utility into identity expression: saving this slideshow says "I'm the kind of person who researches study methods." The combination of Utility Bookmark (useful info) + Aspirational Pull (aesthetic packaging) is the core engine.
+
+```
+Trigger type(s): Rational (primary — useful study tips + proof of results) + Aspirational (secondary — studygram aesthetic)
+Archetype: Mood Showcase (with strong Utility Bookmark characteristics)
+
+Primary mechanism: "Save this for later" (Utility Bookmark)
+- Viewer emotion: "These methods look useful, I need to save this" — utility anxiety + self-improvement motivation
+- Sharing motive: "I'm helping you" — sharer plays the "helpful friend" role
+- Unspoken truth: "I'm afraid my study methods are wrong. Saving these makes me feel like I'm improving, even if I may never actually use them."
+
+Secondary mechanism: "I want that life" (Aspirational Pull)
+- Role: Studygram aesthetic elevates "saving study tips" from pure utility to identity expression — "I'm the kind of person who researches study methods"
+```
+
+### Commercial Analysis
+
+- **Ad location**: Slide 4 — final slide, QANDA logo + iPhone showing study music playlist
+- **Strategy**: Ad-as-list-item — QANDA presented as an "extra item" in the study methods list, transitioning from methods to tools
+- **Narrative justification**: Moderate. First three slides are study "methods", last is a study "tool" — category jump, but coherent under "improving study efficiency"
+- **Visual space**: Full slide dedicated to product, with logo and testimonial text
+- **Subtlety score**: 4 (overt) — prominent logo, direct endorsement language ("greatly improved my learning efficiency"), plus "Tag a friend" CTA
+- **Product fit**: Partial. QANDA as a study tool can appear in a study methods list, but the method→tool category jump weakens list consistency. Better if product were positioned as a "fourth study method" rather than a separate tool
+
+### Soul vs Skin
+
+| Element | Soul/Skin | Value |
+|---------|:---------:|-------|
+| Trigger type | Soul | Rational (useful info + proof) + Aspirational (studygram aesthetic) |
+| Primary mechanism | Soul | Utility Bookmark |
+| Secondary mechanism | Soul | Aspirational Pull — studygram aesthetic drives saves |
+| Archetype | Soul | Mood Showcase (with Utility Bookmark characteristics) |
+| Information Format | Soul | List (each slide = one method item) |
+| Visual Continuity | Skin | Weak (thematic) — could strengthen to Medium |
+| Linguistic pattern | Soul | Proof-first hook + Repeating method card ([Method] + "Best for:" + [Subjects]) |
+| Text layer | Skin | Overlay — could be Baked-in |
+| Ad insertion strategy | Soul | Ad-as-list-item — product must appear as a list entry |
+| Vehicle | Skin | Real study desk flat-lay photos → illustrations, AI study scenes, other aesthetic flat-lay styles |
+| Setting | Skin | Bedroom/desk → library, cafe, study room |
+| Specific text content | Skin | Blurting/Feynman/Pomodoro → any study methods, life hacks, or productivity tips |
+| Cultural reference | Skin | English academic culture (math papers, English textbooks) → any culture's study scenes |
+| Text format | Skin | Minimal label + list format |
+| Visual style | Skin | Real phone photos, studygram aesthetic → any "aspirational" aesthetic, but must maintain "desirable" quality |
+| Number of slides | Skin | 5 (1 hook + 3 methods + 1 ad) → can adjust method count |
+
+**Transferability**: Works for any study/productivity tool (note apps, AI study assistants, focus tools), education platforms, stationery brands, study music apps. Product must naturally fit as "one item in the list" within a study/productivity theme. BREAKS for products unrelated to study/productivity (food, fashion, entertainment) — they can't reasonably appear in a study methods list. Also unsuitable for products needing deep narrative — list format has no room for storytelling.
+
+**Key tactics**:
+- **Proof-first hook**: Opening with visual evidence (100-score papers) rather than text promises. Strongest opener for Rational trigger types.
+- **Repeating card template**: Fixed format per slide ([Method] + "Best for:" + [Subjects+emoji]) creates consistency, reduces cognitive load, increases swipe willingness.
+- **Studygram aesthetic as identity vehicle**: Carefully staged but "natural-looking" study desk photos project identity, not just information. Intersection of Utility Bookmark + Aspirational Pull.
+
+**Lesson**: "Proof-first + list format + aesthetic packaging" is the golden formula for Utility Bookmark slideshows. Power lies not in any single slide's creativity, but in overall structure's credibility (proof), utility (method list), and saveability (aesthetic). Ad insertion challenge: maintain category consistency within the list — jumping from "methods" to "tools" creates dissonance. Best practice: disguise the product as a same-category item.
 
 ---
 
