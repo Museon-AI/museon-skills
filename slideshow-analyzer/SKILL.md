@@ -305,12 +305,48 @@ Must classify these elements. The **Default** column shows the standard classifi
 
 **For each Soul row**, articulate the **purpose** — the specific reason it's locked (what would break if you changed it). **For each Skin row**, articulate the **constraint** — the boundary within which it can be swapped (e.g., "Vehicle: any small animal with an expressive face"). If you can't articulate either, re-examine the classification.
 
-**Required output (Step 6 final)**:
+**Required output (Step 6 final — ALL FOUR BLOCKS, in this order)**:
+
+**Block 1 — Soul vs Skin table (every row, no exceptions)**
+
+| Element | Final classification | Case value | Purpose (if Soul) / Constraint (if Skin) |
+|---------|:--------------------:|------------|------------------------------------------|
+| Text CTA Hook Strategy | Soul | [hook type from Step 1.0] | [what breaks if changed] |
+| Trigger type | Soul | [from Step 4] | [what breaks if changed] |
+| Primary mechanism | Soul | [from Step 4] | [what breaks if changed] |
+| Archetype | Soul | [from Step 4] | [what breaks if changed] |
+| Information Format | Soul | [from Step 2] | [what breaks if changed] |
+| Visual Continuity strength | Soul | [from Step 2] | [what breaks if changed] |
+| Linguistic pattern | Soul | [the template] | [what breaks if changed] |
+| Text presence | Soul | [yes/no] | [what breaks if changed] |
+| Text rendering spec | Soul | [the spec] | [what breaks if changed] |
+| Text position rule | Soul | [the rule] | [what breaks if changed] |
+| Ad insertion strategy | Soul or Skin | [strategy] | [purpose or constraint, depending on classification] |
+| Vehicle credibility profile | Soul (if human) / N/A | [look/aura tier, or N/A] | [purpose or N/A reason] |
+| Vehicle | Skin | [the specific subject] | [the swap boundary, e.g., "any small animal with expressive face"] |
+| Setting/Environment | Skin | [the place] | [swap boundary] |
+| Specific text content | Skin | [the words] | [swap boundary — must fit the linguistic pattern] |
+| Cultural reference | Skin | [the reference] | [swap boundary] |
+| Specific font pick | Skin | [the font] | [swap boundary — within the family] |
+| Specific text position | Skin | [per-slide position] | [swap boundary — must obey the position rule] |
+| Visual style | Skin | [photo/illustration style] | [swap boundary — must keep authenticity tier] |
+| Number of slides | Skin | [N] | [swap boundary — pacing range] |
+
+Every row must be filled. If a row is N/A, write `N/A — <one-line reason>` in **both** the Case value and Purpose/Constraint columns.
+
+**Block 2 — Override log (only rows where you departed from the Default)**
 
 ```
-Soul vs Skin table:  <fully filled, every row has either the case value + purpose,
-                      or the case value + constraint>
+Overrides:
+- [Element X]: Default = [Soul/Skin], overridden to [Skin/Soul] because [specific reason
+                tied to this case's mechanism]
+- [Element Y]: ...
+(or "None — all rows kept the default classification")
+```
 
+**Block 3 — Transferability**
+
+```
 Transferability:
 ├─ Products that FIT:    [category descriptors — e.g., "any productivity tool with
 │                          a 'replaces manual effort' angle"]
@@ -318,15 +354,15 @@ Transferability:
 └─ Audience required:    [who must be the target audience for this blueprint to land]
 ```
 
-#### Handoff note for derivation
-
-This Soul vs Skin table is the canonical input for `slideshow-grid-prompter`. When the prompter (or any human deriving a variant) uses this blueprint, **they MUST go through every Soul row and confirm that the new design has a concrete implementation of it** — not just "I changed N skin elements". A derivation that swaps Skin freely but quietly drops a Soul (e.g., turning a "negative emotion mirror" into a "positive product testimonial") is a broken derivation, not a creative one.
-
-When you finish this Step 6, end the analysis with one explicit line:
+**Block 4 — Derivation rule (verbatim, end the entire analysis with this line)**
 
 ```
 Derivation rule: Keep ALL Soul rows. Replace ≥2 Skin rows. Verify Soul row-by-row before generating.
 ```
+
+#### Handoff note for derivation
+
+This Soul vs Skin table is the canonical input for `slideshow-grid-prompter`. When the prompter (or any human deriving a variant) uses this blueprint, **they MUST go through every Soul row and confirm that the new design has a concrete implementation of it** — not just "I changed N skin elements". A derivation that swaps Skin freely but quietly drops a Soul (e.g., turning a "negative emotion mirror" into a "positive product testimonial") is a broken derivation, not a creative one.
 
 ---
 
