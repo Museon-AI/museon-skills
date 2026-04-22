@@ -24,13 +24,18 @@ Identify:
 - **Whether a Visual Hook Persona is present in the Soul rows** — if the source analysis contains a `Visual Hook Persona` row classified as Soul, extract its exact appearance description. This description is a locked constraint that must be carried into the Character Consistency Block, not discarded during skin substitution.
 
 ### Step 2: Find a Solution Scenario and Make Skin Decisions
-The core logic is: **Product → Solution Scenario → Skin Decisions**.
-1. **Find a Scenario**: Identify a specific problem/scenario that the Product solves, which also fits the emotional or narrative structure of the Soul. (e.g., Product: AI content creator → Scenario: A human creator burning out from the daily content grind).
+The core logic is: **Product → Scenario → Skin Decisions**. But the type of scenario depends on the Soul's archetype.
+1. **Find a Scenario** (branch by archetype):
+   - **If Archetype = Mood Showcase**: Find a **lifestyle context** where the Product naturally appears as one element of an already-desirable state. Do NOT find a "problem the product solves" — Mood Showcase has no problem-solution arc. The protagonist is already living well; the product is part of why. (e.g., Product: AI agent → Scenario: A founder who runs a calm, high-output solo business from a beautiful apartment — the product is one of 5 tools in their daily stack.)
+   - **If Archetype = Emotional Arc**: Find a **transformation scenario** where the Product enables the shift from pain to resolution. (e.g., Product: AI content creator → Scenario: A human creator burning out from the daily content grind, then discovering the product.)
+   - **If Archetype = Character-Action or Tension-Punchline**: Find a **comedic scenario** where the Product can serve the humor mechanism (e.g., as the punchline, the absurd element, or the self-referential twist).
+   
+   **Anti-pattern**: Choosing a "problem → solution" scenario for a Mood Showcase soul will turn the slideshow into an Emotional Arc, destroying the aspirational atmosphere. If you catch yourself writing a scenario where the protagonist is "overwhelmed" or "struggling" for a Mood Showcase soul, stop and rewrite.
 2. **Decide the Skin**: Let the scenario dictate what the open Skin elements should become.
    - *Vehicle (Character)*: Who experiences this scenario?
    - *Setting*: Where does this scenario happen?
-   - *Content/Text*: What specific pain points or thoughts fit this scenario?
-   - *Visual Style*: What aesthetic best conveys the mood of this scenario?
+   - *Content/Text*: What specific content fills the linguistic pattern? (For Mood Showcase: tool descriptions, lifestyle details. For Emotional Arc: pain points and thoughts. For humor archetypes: comedic observations.)
+   - *Visual Style*: What aesthetic best conveys the mood of this scenario? **Critical**: Check the Soul's `Emotional Register` field. If it says "aspirational", the visual style must feel desirable/elevated, not mundane or cluttered. See Constraint 3 Path A Exception for details.
 3. **Handle Visual Hook Persona (critical — do not skip if present)**:
    - If the source Soul table contains a `Visual Hook Persona` classified as **Soul**, the appearance elements it describes are **locked**. They must be preserved in the Character Consistency Block of the new prompt. You may adapt them to the new scenario (e.g., change hair color or outfit to fit the new character's context), but you MUST NOT replace the underlying visual contrast logic (e.g., if the soul is "looks polished while claiming to struggle", the new character must also look polished, not visibly exhausted).
    - If the source Soul table contains a `Visual Hook Persona` classified as **Skin**, you may freely substitute appearance within the swap boundary described in the constraint column.
@@ -62,6 +67,12 @@ For each panel (slide) in the grid:
 2. **Text**: Fill in the soul's linguistic pattern. Keep text short (max 3 lines, 5-8 words per line).
 3. **Scene**: Design a visual scene that carries the text's meaning. Maintain consistent character and style across panels.
 4. **Product placement**: Integrate the product on the ad slide according to the soul's ad strategy.
+5. **Ad-as-list-item consistency check** (apply when the Soul's ad strategy is Ad-as-list-item): The product slide MUST be visually and narratively indistinguishable from other list items. Check:
+   - Is the product's scene cleaner, brighter, or more spacious than other scenes?
+   - Is the product's description more positive, transformative, or "hero-like" than other descriptions?
+   - Does the product occupy a climactic position (last slide) with a visual "upgrade" compared to previous slides?
+   
+   If yes to any of these, you have accidentally turned **Ad-as-list-item into Ad-as-resolution** — the product becomes the narrative climax instead of just another item in the stack. Fix: make the product slide look and read like "just another tool I use", with the same visual quality, scene tone, and description weight as every other list item.
 
 ### Step 5: Write the Master Grid Prompt
 Write a single, detailed image generation prompt that describes the entire grid. Follow the strict constraints below.
@@ -153,6 +164,29 @@ Every panel should look like a photo pulled from someone's camera roll — the k
 | 6 | Is lighting described as ambient/natural, not cinematic? | Replace "golden hour" / "soft light" with "overhead light" / "window light with harsh shadows" |
 | 7 | Is clothing casual and specific, not stylish/elegant? | Replace fashion descriptions with everyday clothes |
 | 8 | Does the scene feel like a camera roll photo? | If it reads like a magazine shoot description, rewrite entirely |
+| 9 | Does the Soul's Emotional Register = aspirational? | If yes, apply the Aspirational Casual Exception below instead of standard Layer 3 rules |
+
+##### Path A Exception: Aspirational Casual (when Soul's Emotional Register = aspirational)
+
+When the Soul's `Emotional Register` is **aspirational** (typically paired with Aspirational Pull mechanism), the standard UGC rules in Layer 3 must be softened. The goal is NOT "messy and relatable" but **"real yet desirable"** — the intersection of camera-roll authenticity and aspirational atmosphere.
+
+**Layer 1 (RAW iPhone Aesthetic) and Layer 2 (Imperfection Injection) still apply in full.** The image must still look like a phone photo, not a studio shoot. The difference is only in Layer 3 (Scene DNA).
+
+**Aspirational Casual Scene Rules** (replace standard Layer 3 rules when this exception applies):
+
+1. **Backgrounds are real but elevated** — Real environments (not studios), but environments people aspire to: high-rise apartments with city views, modern kitchens with clean countertops, poolside terraces, well-designed workspaces with natural light. NOT: messy desks, unmade beds, car interiors, bathroom mirrors.
+2. **Objects are real but curated** — Apple devices, quality headphones, design books, good coffee in a proper cup, a nice water bottle. NOT: crumpled receipts, half-eaten sandwiches, random clutter, plastic bags.
+3. **Lighting is natural but flattering** — Window light, afternoon sun, warm indoor ambient light. The room is well-lit and pleasant. NOT: harsh fluorescent, laptop-only glow, mixed ugly color temperatures.
+4. **The person (if present) is casual but put-together** — Not posing for a photoshoot, but not looking overwhelmed either. "Working calmly at a nice desk", "standing by the window checking phone". NOT: "squinting at screen in a messy room", "caught mid-panic", "looking exhausted".
+5. **Life traces are tasteful, not chaotic** — A blanket draped over a couch, a camera on the table, a cap on the counter. These signal "someone lives here" without signaling "someone is struggling here". NOT: piles of laundry, stacked dishes, overflowing trash.
+6. **The overall vibe is "I casually live like this"** — The aspirational element must feel effortless, not staged. The viewer should think "I want their life" not "nice photoshoot" and definitely not "that’s relatable".
+
+**Aspirational Casual Scene Template** (use instead of standard UGC Scene Template when this exception applies):
+```
+Every panel should look like a photo pulled from someone’s camera roll — but this person has a life you’d want. Not a photoshoot, not an ad, but not a messy dorm room either. The environments are real but elevated: clean modern spaces, good natural light, tasteful objects. The person (if present) is caught in a natural moment, not posing, but looks put-together and calm. Shot on iPhone [model] in [lighting condition]. RAW iPhone aesthetic with visible skin texture, slight grain in shadows, auto white-balance, and phone camera deep depth of field. No airbrushing, no color grading, no cinematic lighting, no bokeh.
+```
+
+**Key principle**: Aspirational Casual = camera roll aesthetic + elevated environment. Standard Path A optimizes for "real" at the expense of "desirable". This exception preserves both. The original slideshow this soul was extracted from likely used exactly this balance — real photos in aspirational spaces.
 
 ---
 
@@ -264,6 +298,8 @@ Describe each panel explicitly: `Panel 1 (Top Left): [Scene description]. [Font 
 - **Style test (Path A)**: Run through the Path A Checklist. Every check must pass.
 - **Style test (Path B)**: Run through the Path B Checklist. Every check must pass.
 - **Vibe test**: For Path A — does it sound like describing a camera roll, or a photoshoot brief? For Path B — does it sound like a commission brief for a specific artist, or a vague "make it look cool" request?
+- **Emotional register test**: Does the overall emotional tone of the generated scenes match the Soul's `Emotional Register`? If Emotional Register = aspirational, do ALL scenes feel desirable and elevated? If Emotional Register = relatable, do scenes feel everyday and familiar? A prompt where all scenes feel "messy and struggling" when the Soul requires "aspirational" is a failed derivation — even if the structure, text, and format are all correct. This is the most common silent failure mode for Mood Showcase derivations.
+- **Ad-as-list-item consistency test** (when applicable): Does the product slide look and read like "just another item in the stack"? Or does it stand out as cleaner, brighter, more positive, or more spacious than other slides? If the product slide is visually or narratively distinct, the ad strategy has silently shifted from Ad-as-list-item to Ad-as-resolution.
 
 ### Step 7: Visual Generation Layer (System Prompt + User Prompt)
 After generating the Master Grid Prompt, you MUST also generate the **Visual Generation Layer** for per-slide generation. This is a two-part output:
@@ -362,12 +398,14 @@ Do not include derivation decisions, anti-clone checks, or extra commentary in t
 
 ### Path A (Realistic) Mistakes
 5. **Plastic AI Faces** — The #1 giveaway. MUST include `visible skin texture, natural pores, no airbrushing` AND specify a phone model. Never use `perfect`, `flawless`, or `beautiful` to describe people.
-6. **Styled/aspirational backgrounds** — The biggest UGC killer. Real TikTok creators film in messy rooms, not minimalist studios. Replace "cozy styled desk" with "cluttered desk with random papers and a half-empty water bottle".
+6. **Styled/aspirational backgrounds** — The biggest UGC killer *for relatable/emotional content*. Real TikTok creators film in messy rooms, not minimalist studios. Replace "cozy styled desk" with "cluttered desk with random papers and a half-empty water bottle". **Exception**: When the Soul's Emotional Register = aspirational (Aspirational Pull mechanism), backgrounds SHOULD be elevated and desirable — see the Aspirational Casual Exception. Applying this rule blindly to Aspirational Pull content destroys the core mechanism.
 7. **Cinematic lighting language** — Words like "golden hour", "soft diffused light", "warm ambient glow" trigger the AI's "pretty photo" mode. Use "overhead fluorescent", "laptop screen glow", "harsh window light" instead.
 8. **Perfect poses** — "Smiling at camera" or "looking confident" = stock photo. "Caught mid-sentence", "squinting at screen", "one hand in hair while reading phone" = UGC.
 9. **Using "photorealistic"** — Counterintuitively, this word makes images LESS realistic. It triggers the AI's "make it look impressive" mode. Use `RAW iPhone aesthetic` instead.
 10. **Forgetting physical imperfections** — Real people have flyaway hairs, slightly uneven features, chipped nails. AI defaults to symmetrical perfection. You must explicitly prompt for at least one imperfection per character.
 11. **Discarding a Soul-classified Visual Hook Persona** — The most common derivation failure. When a source analysis marks Visual Hook Persona as Soul (e.g., "looks flawless while claiming to struggle"), replacing the polished character with a visibly exhausted one removes the core visual tension that makes the hook work. Always check the Soul table before writing the Character Consistency Block.
+12. **Destroying Aspirational Pull with UGC clutter** — When the Soul's mechanism is Aspirational Pull, applying standard Path A Layer 3 rules (messy desks, crumpled receipts, half-eaten food, harsh fluorescent lighting) destroys the "I want that life" feeling. The result looks "real" but no longer "desirable". Check the Soul's Emotional Register before applying Layer 3 — if it says "aspirational", use the Aspirational Casual Exception instead.
+13. **Turning Ad-as-list-item into Ad-as-resolution** — When the Soul's ad strategy is Ad-as-list-item, the product slide must be visually and narratively indistinguishable from other list items. Making the product's slide cleaner, brighter, or more positive than other slides — or placing it as the narrative climax — silently converts the ad strategy into Ad-as-resolution, which breaks the trust-borrowing mechanism.
 
 ### Path B (Illustrated) Mistakes
 11. **Style drift between panels** — The #1 problem for illustrated slideshows. If the global style block is vague (just "comic style"), different panels will look like different artists drew them. Be extremely specific: name the style, an artist reference, line weight, color palette, and shading method.

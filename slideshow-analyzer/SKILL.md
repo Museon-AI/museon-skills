@@ -381,12 +381,13 @@ Must classify these elements. The **Default** column shows the standard classifi
 | **Vehicle credibility profile** (when vehicle is human: the look/aura *tier* that earns the hook — e.g., "hot finance bro", "sad-boy aesthetic", "relatable nerdy girl", "intimidating professor") | **Soul** (when human) / N/A (when animal/object) | |
 | **Visual Hook Persona** (when vehicle is human AND the specific appearance is load-bearing for the stop-scroll mechanism: the precise physical description that makes the hook fire — face features, hair, outfit, props, body language. Distinct from credibility tier: tier says *what kind* of person; Visual Hook Persona says *exactly what they look like*. Classify as Soul when the visual contrast between appearance and text is itself the hook — e.g., "looks flawless while claiming to be struggling". Classify as Skin when appearance is interchangeable within the tier.) | **Soul** (when appearance IS the contrast/hook) / Skin (when appearance is interchangeable within the tier) / N/A (when animal/object) | |
 | **Vehicle** (The specific character/subject carrying the mechanism. When human: specific job/age/ethnicity/outfit *within* the credibility tier above) | Skin | |
+| **Emotional Register** (The emotional tone of the scenes: aspirational / relatable / struggling / neutral. Determines whether scenes should feel desirable, everyday, or painful. This is distinct from Trigger type — Trigger type says *why* people share; Emotional Register says *what mood the scenes must project* to support that trigger. When the primary mechanism is Aspirational Pull, scenes must feel desirable/elevated; when Emotional Mirror, scenes must feel relatable/everyday; when Forbidden Release or Doom Spiral, scenes must feel mundane enough to create contrast with the transgressive or escalating element.) | Soul | |
 | **Setting/Environment** (Where the scene takes place, must support the mechanism) | Skin | |
 | **Specific text content** (What fills the linguistic pattern slots) | Skin | |
 | **Cultural reference** (What cultural context is used) | Skin | |
 | **Specific font pick** (Within the chosen family) | Skin | |
 | **Specific text position** (On each slide, within the rule) | Skin | |
-| **Visual style** (Photo quality, color palette, era) | Skin | |
+| **Visual style** (Photo quality, color palette, era. Swap boundary must support the primary mechanism: if Aspirational Pull, scenes must remain desirable/elevated — mundane or cluttered scenes break the mechanism; if Emotional Mirror, scenes must remain relatable; if Forbidden Release, scenes must remain mundane enough for contrast.) | Skin | |
 | **Number of slides** (How many build slides before the spike) | Skin | |
 
 \* Ad insertion strategy is Soul when the ad IS the mechanism (e.g., Ad-as-punchline in Case 006); Skin when the ad is appended after the narrative (e.g., Ad-as-final-slide in Case 001). Decide per case.
@@ -417,12 +418,13 @@ Must classify these elements. The **Default** column shows the standard classifi
 | Vehicle credibility profile | Soul (if human) / N/A | [look/aura tier, or N/A] | [purpose or N/A reason] |
 | Visual Hook Persona | Soul or Skin or N/A | [exact appearance description, or N/A] | [if Soul: what visual contrast breaks if changed; if Skin: swap boundary within the credibility tier] |
 | Vehicle | Skin | [the specific subject] | [the swap boundary, e.g., "any small animal with expressive face"] |
+| Emotional Register | Soul | [aspirational / relatable / struggling / neutral] | [what breaks if the emotional tone changes — e.g., "Aspirational Pull requires scenes that feel desirable; switching to relatable/struggling kills the longing"] |
 | Setting/Environment | Skin | [the place] | [swap boundary] |
 | Specific text content | Skin | [the words] | [swap boundary — must fit the linguistic pattern] |
 | Cultural reference | Skin | [the reference] | [swap boundary] |
 | Specific font pick | Skin | [the font] | [swap boundary — within the family] |
 | Specific text position | Skin | [per-slide position] | [swap boundary — must obey the position rule] |
-| Visual style | Skin | [photo/illustration style] | [swap boundary — must keep authenticity tier] |
+| Visual style | Skin | [photo/illustration style] | [swap boundary — must keep authenticity tier AND support the primary mechanism's emotional register] |
 | Number of slides | Skin | [N] | [swap boundary — pacing range] |
 
 Every row must be filled. If a row is N/A, write `N/A — <one-line reason>` in **both** the Case value and Purpose/Constraint columns.
