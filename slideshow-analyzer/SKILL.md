@@ -11,11 +11,70 @@ Worked examples live in `references/cases.md`. **Read it before analyzing** — 
 
 ---
 
+## Deliverable
+
+**The output of running this skill is a single Markdown file**, not chat output.
+
+- **File path**: `<source-name>.analysis.md` in the working directory (e.g., `delust-saddboy.analysis.md`). If the user provided a name, use it; otherwise derive from the source URL/filename.
+- **The file MUST contain every section in the report skeleton below, in order.** Skipping or merging sections = broken deliverable.
+- Save the file at the end of Step 7. Do not declare the analysis complete until the file exists on disk.
+
+### Report skeleton (the file you produce must look exactly like this)
+
+```markdown
+# Slideshow Analysis: <source name>
+
+Source: <URL or file path>
+Analyzed: <YYYY-MM-DD>
+
+## 1. Look
+### 1.0 Slide 0 Hook Deconstruction
+<text hook / visual hook / stop-scroll mechanism>
+
+### 1.1 Text Rendering Spec (set-level)
+<spec block, or "N/A — no text">
+
+### 1.2 Per-Slide Capture
+<table: one row per slide>
+
+### 1.3 Set-Level Observations
+<cross-slide characters, visual contrast pattern>
+
+## 2. Connect
+### 2.1 Visual Continuity
+### 2.2 Information Format
+
+## 3. Story
+### 3.1 Sequence Map
+### 3.2 Spike / Peak / Turn
+
+## 4. Hook & Sharing Mechanism
+### 4.1 Hook (carried forward from 1.0, do not collapse)
+### 4.2 Trigger & Archetype
+### 4.3 Primary & Secondary Mechanism
+### 4.4 Why People Share (emotion / motive / unspoken truth)
+
+## 5. Commercial Layer
+### 5.1 Per-Slide Ad Pre-Scan
+### 5.2 Insertion Strategy & Analysis  (or "No Ad — Best Insertion Point" if no ad)
+
+## 6. Soul vs Skin
+### 6.1 Soul vs Skin Table
+### 6.2 Override Log
+### 6.3 Transferability
+### 6.4 Derivation Rule
+
+## 7. Notes
+<anything that didn't fit above: open questions, unusual mechanics, things to double-check>
+```
+
+---
+
 ## Analysis Flow
 
-Six steps. Do them in order. Steps 4 and 6 are the most important.
+Seven steps. Do them in order. Steps 4 and 6 are the most important. Steps 1–6 each fill one section of the report; Step 7 saves the file.
 
-> **Output discipline (applies to every step)**: Each step has a required output template. **Every field is mandatory.** If a field doesn't apply, write `N/A — <one-line reason>` rather than skipping it. Skipping a field counts as analysis failure — go back and fill it.
+> **Output discipline (applies to every step)**: Each step's output goes directly into the corresponding report section listed in the skeleton. **Every field in every section is mandatory.** If a field doesn't apply, write `N/A — <one-line reason>` rather than skipping it. Skipping a field counts as analysis failure — go back and fill it.
 
 ### Step 1: Look — What's in each slide?
 
@@ -29,7 +88,7 @@ Slide 0 is the entire reason the rest of the deck gets watched. Analyze it as a 
 | **Visual hook** | The single visual element that stops the scroll (e.g., "sad-boy face filling frame", "tiny hamster in cubicle", "split-screen glow vs acne") | Cover the text — what's still doing the work? |
 | **Stop-scroll mechanism** | Why the text + visual COMBINATION makes someone pause. Be specific about the interaction, not just "it's interesting". | If you can't articulate why these two specifically work together, the hook isn't actually working — say so. |
 
-**Required output**:
+**Fills report section 1.0**:
 
 ```
 Slide 0 Hook
@@ -65,16 +124,23 @@ Then across all slides:
 - **Do characters span multiple slides?** Are different characters in the same scene separated by the crop?
 - **Is there a visual contrast pattern?** (e.g., split-screen good/bad, before/after, light/dark)
 
-**Required output (Step 1 final)**:
+**Fills report sections 1.1, 1.2, 1.3**:
 
-```
-Set-level:
-├─ Text rendering spec: [block from 1.1, or "N/A — no text"]
-├─ Cross-slide characters: [yes/no, who]
-└─ Visual contrast pattern: [type, or "N/A"]
+```markdown
+### 1.1 Text Rendering Spec (set-level)
+[Use the spec block from the table above, or "N/A — no text"]
 
-Per-slide table: <one row per slide using the fields above — Content / Characters /
-                  Text / Text format / Linguistic pattern / Visual quality / Role>
+### 1.2 Per-Slide Capture
+
+| # | Content | Characters | Text | Text format | Linguistic pattern | Visual quality | Role |
+|---|---------|------------|------|-------------|--------------------|----------------|------|
+| 0 | ... | ... | ... | ... | ... | ... | Hook |
+| 1 | ... | ... | ... | ... | ... | ... | ... |
+| ... | | | | | | | |
+
+### 1.3 Set-Level Observations
+- Cross-slide characters: [yes/no — who, and how they relate]
+- Visual contrast pattern: [type, or "N/A"]
 ```
 
 ### Step 2: Connect — How do the slides relate?
@@ -110,14 +176,16 @@ When you detect a **single-image split** (strongest form), ask three questions:
 | Mood Board / Grid | Multi-image collage per slide | Yes between slides |
 | Atmospheric Progression | One mood scene per slide, building an arc | No |
 
-**Required output (Step 2 final)**:
+**Fills report sections 2.1, 2.2**:
 
-```
-Visual Continuity:    [Strong (zoom/pan) | Medium (shared scene) | Weak (thematic)]
-└─ Evidence:          [the specific cross-slide signal — e.g., "lawyer's arm crosses crop boundary"]
+```markdown
+### 2.1 Visual Continuity
+- Classification: [Strong (zoom/pan) | Medium (shared scene) | Weak (thematic)]
+- Evidence:       [the specific cross-slide signal — e.g., "lawyer's arm crosses crop boundary"]
 
-Information Format:   [one of the 10 above]
-└─ Evidence:          [why this format and not a neighbor — e.g., "shuffleable = List, not Story"]
+### 2.2 Information Format
+- Classification: [one of the 10 formats above]
+- Evidence:       [why this format and not a neighbor — e.g., "shuffleable → List, not Story"]
 ```
 
 ### Step 3: Story — What's the narrative arc?
@@ -142,13 +210,16 @@ Identify:
 - **Is there a turn?** (pain→hope, before→after, struggle→resolution)
 - **Is there a product integration?** How naturally does it fit?
 
-**Required output (Step 3 final)**:
+**Fills report sections 3.1, 3.2**:
 
-```
-Sequence map:    [Slide 0: role] → [Slide 1: role] → ... → [Slide N: role]
-Spike / Peak:    Slide [#] — [why this is the strongest moment]
-Turn (if any):   [from X → to Y, at slide #]   OR   "N/A — no turn"
-Linguistic pattern carrying the arc: [the template]
+```markdown
+### 3.1 Sequence Map
+[Slide 0: role] → [Slide 1: role] → ... → [Slide N: role]
+
+### 3.2 Spike / Peak / Turn
+- Spike / Peak:  Slide [#] — [why this is the strongest moment]
+- Turn (if any): [from X → to Y, at slide #]   OR   "N/A — no turn"
+- Linguistic pattern carrying the arc: [the template]
 ```
 
 ### Step 4: Text CTA Hook & Sharing Mechanism (MOST IMPORTANT)
@@ -195,24 +266,26 @@ Match a known mechanism (one-line definitions below). If none fits, define a new
 | **Transformation Proof** ("Look what happened") | Hope — "if they can, maybe I can" | Pet in shelter cage (before) → same pet on plush bed at home (after) |
 | **Utility Bookmark** ("Save this for later") | Practical value worth keeping | Multi-angle workspace/tool grid that's both useful reference and aesthetic |
 
-**Required output (Step 4 final)**:
+**Fills report sections 4.1, 4.2, 4.3, 4.4**:
 
-```
-Hook (carry over from Step 1.0, do NOT collapse into one line):
-├─ Text hook:        "[exact copy]" — [hook type]
-├─ Visual hook:      [the one element doing the visual work]
-└─ Stop-scroll:      [why text × visual combination earns the pause]
+```markdown
+### 4.1 Hook (carried forward from 1.0, do not collapse)
+- Text hook:   "[exact copy]" — [hook type]
+- Visual hook: [the one element doing the visual work]
+- Stop-scroll: [why text × visual combination earns the pause]
 
-Trigger type(s):     [primary], [secondary if any]
-Archetype:           [Character-Action / Tension-Punchline / Emotional Arc / Mood Showcase]
+### 4.2 Trigger & Archetype
+- Trigger type(s): [primary], [secondary if any]
+- Archetype:       [Character-Action / Tension-Punchline / Emotional Arc / Mood Showcase]
 
-Primary mechanism:   [name]
-├─ Viewer emotion:   [specific]
-├─ Sharing motive:   [what sharing says about the sharer]
-└─ Unspoken truth:   [the thing everyone feels but nobody says]
+### 4.3 Primary & Secondary Mechanism
+- Primary mechanism:    [name]
+- Secondary mechanism(s): [name(s)] — [how each supports the primary, or "N/A"]
 
-Secondary mechanism(s): [name(s)]
-└─ Role:             [how it supports the primary]
+### 4.4 Why People Share
+- Viewer emotion:  [specific]
+- Sharing motive:  [what sharing says about the sharer]
+- Unspoken truth:  [the thing everyone feels but nobody says]
 ```
 
 ### Step 5: Commercial Layer — How does the ad work?
@@ -245,30 +318,46 @@ Then match an insertion strategy:
 - **Ad-as-curation-pick** — product featured as part of an aesthetic mood board
 - **Ad-as-step** — product embedded as one step in a how-to/process
 
-**If the slideshow has an ad**, output:
+**Fills report sections 5.1, 5.2**:
 
-```
-Ad location:           Slide [#], [visual region — e.g., low-density area top-right]
-Insertion strategy:    [strategy name]
-Narrative justification: [one sentence: why this product belongs here in this story]
-Subtlety score:        [1–5, where 1 = invisible, 5 = overt. Best ads land at 1–3]
-Product-mechanism fit: [why this product is structurally able to fill this slot;
-                        what other products would fit; what would break]
-Removable?             [Yes/No. If removing the ad doesn't break the slideshow, the
-                        ad is NOT structurally integrated — flag it.]
-```
+```markdown
+### 5.1 Per-Slide Ad Pre-Scan
 
-**If the slideshow has NO ad**, output:
+| Slide # | Product names | Logos | Screenshots | URLs/handles | CTA copy | Character using product | "Thank god X" lines | Verdict |
+|---------|---------------|-------|-------------|--------------|----------|------------------------|---------------------|---------|
+| 0 | none | none | none | none | none | none | none | clean |
+| 1 | ... | ... | ... | ... | ... | ... | ... | clean / has-ad |
+| ... | | | | | | | | |
 
-```
-Best insertion point:  Slide [#], [strategy name]
-Why this slot:         [why this slide is the natural product moment for this archetype]
-Product fit profile:   [what kind of product would naturally fill this slot —
-                        category, function, tone — not specific brands]
-Anti-fit:              [what kinds of products would break the mechanism here]
+Conclusion: [has ad on slide(s) #] OR [no ad — every slide explicitly cleared above]
 ```
 
-**Quality gate**: if you cannot fill *any* row above with conviction, the ad is bolted-on (or the slideshow has no commercial slot to begin with). Say so explicitly rather than fabricating justification.
+If the slideshow has an ad, also fill:
+
+```markdown
+### 5.2 Insertion Strategy & Analysis
+- Ad location:             Slide [#], [visual region — e.g., low-density area top-right]
+- Insertion strategy:      [strategy name]
+- Narrative justification: [one sentence: why this product belongs here in this story]
+- Subtlety score:          [1–5, where 1 = invisible, 5 = overt. Best ads land at 1–3]
+- Product-mechanism fit:   [why this product is structurally able to fill this slot;
+                            what other products would fit; what would break]
+- Removable?               [Yes/No. If removing the ad doesn't break the slideshow,
+                            the ad is NOT structurally integrated — flag it.]
+```
+
+If the slideshow has NO ad, instead fill:
+
+```markdown
+### 5.2 No Ad — Best Insertion Point
+- Best insertion point: Slide [#], [strategy name]
+- Why this slot:        [why this slide is the natural product moment for this archetype]
+- Product fit profile:  [what kind of product would naturally fill this slot —
+                          category, function, tone — not specific brands]
+- Anti-fit:             [what kinds of products would break the mechanism here]
+```
+
+**Quality gate**: if you cannot fill *any* row above with conviction, the ad is bolted-on (or the slideshow has no commercial slot to begin with). Say so explicitly in the report rather than fabricating justification.
 
 ### Step 6: Extract Soul vs Skin (CRITICAL FOR DERIVATION)
 
@@ -305,28 +394,79 @@ Must classify these elements. The **Default** column shows the standard classifi
 
 **For each Soul row**, articulate the **purpose** — the specific reason it's locked (what would break if you changed it). **For each Skin row**, articulate the **constraint** — the boundary within which it can be swapped (e.g., "Vehicle: any small animal with an expressive face"). If you can't articulate either, re-examine the classification.
 
-**Required output (Step 6 final)**:
+**Fills report sections 6.1, 6.2, 6.3, 6.4 — ALL FOUR, in this order**:
 
+```markdown
+### 6.1 Soul vs Skin Table
 ```
-Soul vs Skin table:  <fully filled, every row has either the case value + purpose,
-                      or the case value + constraint>
 
-Transferability:
-├─ Products that FIT:    [category descriptors — e.g., "any productivity tool with
-│                          a 'replaces manual effort' angle"]
-├─ Products that BREAK:  [category descriptors — what kills the mechanism]
-└─ Audience required:    [who must be the target audience for this blueprint to land]
+| Element | Final classification | Case value | Purpose (if Soul) / Constraint (if Skin) |
+|---------|:--------------------:|------------|------------------------------------------|
+| Text CTA Hook Strategy | Soul | [hook type from Step 1.0] | [what breaks if changed] |
+| Trigger type | Soul | [from Step 4] | [what breaks if changed] |
+| Primary mechanism | Soul | [from Step 4] | [what breaks if changed] |
+| Archetype | Soul | [from Step 4] | [what breaks if changed] |
+| Information Format | Soul | [from Step 2] | [what breaks if changed] |
+| Visual Continuity strength | Soul | [from Step 2] | [what breaks if changed] |
+| Linguistic pattern | Soul | [the template] | [what breaks if changed] |
+| Text presence | Soul | [yes/no] | [what breaks if changed] |
+| Text rendering spec | Soul | [the spec] | [what breaks if changed] |
+| Text position rule | Soul | [the rule] | [what breaks if changed] |
+| Ad insertion strategy | Soul or Skin | [strategy] | [purpose or constraint, depending on classification] |
+| Vehicle credibility profile | Soul (if human) / N/A | [look/aura tier, or N/A] | [purpose or N/A reason] |
+| Vehicle | Skin | [the specific subject] | [the swap boundary, e.g., "any small animal with expressive face"] |
+| Setting/Environment | Skin | [the place] | [swap boundary] |
+| Specific text content | Skin | [the words] | [swap boundary — must fit the linguistic pattern] |
+| Cultural reference | Skin | [the reference] | [swap boundary] |
+| Specific font pick | Skin | [the font] | [swap boundary — within the family] |
+| Specific text position | Skin | [per-slide position] | [swap boundary — must obey the position rule] |
+| Visual style | Skin | [photo/illustration style] | [swap boundary — must keep authenticity tier] |
+| Number of slides | Skin | [N] | [swap boundary — pacing range] |
+
+Every row must be filled. If a row is N/A, write `N/A — <one-line reason>` in **both** the Case value and Purpose/Constraint columns.
+
+```markdown
+### 6.2 Override Log
+
+- [Element X]: Default = [Soul/Skin], overridden to [Skin/Soul] because [specific reason
+                tied to this case's mechanism]
+- [Element Y]: ...
+
+(Or: "None — all rows kept the default classification")
+
+### 6.3 Transferability
+- Products that FIT:    [category descriptors — e.g., "any productivity tool with
+                          a 'replaces manual effort' angle"]
+- Products that BREAK:  [category descriptors — what kills the mechanism]
+- Audience required:    [who must be the target audience for this blueprint to land]
+
+### 6.4 Derivation Rule
+Derivation rule: Keep ALL Soul rows. Replace ≥2 Skin rows. Verify Soul row-by-row before generating.
 ```
 
 #### Handoff note for derivation
 
 This Soul vs Skin table is the canonical input for `slideshow-grid-prompter`. When the prompter (or any human deriving a variant) uses this blueprint, **they MUST go through every Soul row and confirm that the new design has a concrete implementation of it** — not just "I changed N skin elements". A derivation that swaps Skin freely but quietly drops a Soul (e.g., turning a "negative emotion mirror" into a "positive product testimonial") is a broken derivation, not a creative one.
 
-When you finish this Step 6, end the analysis with one explicit line:
+### Step 7: Compile & Save
 
-```
-Derivation rule: Keep ALL Soul rows. Replace ≥2 Skin rows. Verify Soul row-by-row before generating.
-```
+The analysis is **not done** until a Markdown file exists on disk. Steps 1–6 produce content; Step 7 assembles and saves it.
+
+**Procedure**:
+
+1. **Assemble** the report by concatenating sections 1.0 → 7 in the exact order shown in the Report Skeleton at the top of this skill.
+2. **Add section 7. Notes** with anything that didn't fit above (open questions, unusual mechanics, things to double-check, deviations from this skill).
+3. **Save** to `<source-name>.analysis.md` in the working directory.
+4. **Pre-save checklist** — refuse to save if any of these fail:
+   - [ ] Section 1.0 has all three layers (text hook / visual hook / stop-scroll), none are "TBD"
+   - [ ] Section 1.2 per-slide table has one row per slide, every column filled
+   - [ ] Sections 4.1–4.4 are present as separate sub-blocks (hook NOT collapsed into one line)
+   - [ ] Section 5.1 has the per-slide pre-scan table covering every slide
+   - [ ] Section 6.1 has all 19+ rows of the Soul/Skin table filled (case value AND purpose/constraint, not blank)
+   - [ ] Section 6.4 ends with the literal "Derivation rule:" line
+5. **After saving**, print a one-line confirmation in chat: `Analysis saved to <path>` (no other commentary needed — the file IS the deliverable).
+
+**Output format note**: The chat output during analysis is working scratch; the file is the deliverable. Don't repeat the full report in chat after saving — just confirm the path.
 
 ---
 
