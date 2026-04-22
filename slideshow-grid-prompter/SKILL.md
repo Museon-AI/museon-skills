@@ -259,7 +259,7 @@ Describe each panel explicitly: `Panel 1 (Top Left): [Scene description]. [Font 
 - **Vibe test**: For Path A — does it sound like describing a camera roll, or a photoshoot brief? For Path B — does it sound like a commission brief for a specific artist, or a vague "make it look cool" request?
 
 ### Step 7: Output
-Write the prompt file following the `templates/grid-prompt-output.md` format. Save to the working directory. **DO NOT generate multiple variants unless explicitly asked.** The goal is to produce ONE perfect, comprehensive prompt that synthesizes the Soul, Skin, Product, and custom instructions.
+The deliverable is **only the raw image generation prompt** — no derivation decisions, no anti-clone checks, no captions, no hashtags. Save the prompt as a plain text file (`.md`) to the working directory. The file should contain nothing but the master image prompt itself. **DO NOT generate multiple variants unless explicitly asked.** The goal is to produce ONE perfect, comprehensive prompt that synthesizes the Soul, Skin, Product, and custom instructions.
 
 ---
 
