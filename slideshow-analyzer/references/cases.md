@@ -263,4 +263,81 @@ Secondary mechanism: "Dramatically unimportant" (Dignity Mismatch)
 
 ---
 
+## Case 008: Hamster "Life lately" — Variant (soft-ad for unknown product)
+
+**Archetype**: Character-Action | **Trigger**: Emotional (meme/humor) | **Info Format**: List | **Visual Continuity**: Weak (thematic)
+
+**Format**: 5 slides, portrait (~3:4), AI-generated photorealistic hamster
+
+**Relationship to Case 001**: This is a **skin-level clone** of Case 001. Same hamster character, same "Life lately" hook, same single-word label pattern, same life domains, same Forbidden Release + Absurd Intrusion mechanism combo. Only difference: Slide 4 product is "xxx" instead of "MuseOn", with copy "Using xxx to survive the human world" instead of "Using MuseOn to reverse-engineer viral formulas".
+
+| # | Role | Content | Text |
+|---|------|---------|------|
+| 0 | Hook | 2×2 grid preview collage of all 4 individual scenes | "Life lately:" |
+| 1 | Spike | Hamster in cubicle, paws raised (one appears to give middle finger), facing monitor | "Work" |
+| 2 | Narrative | Hamster on treadmill wearing backwards cap + headphones, lifting small dumbbell | "Fitness" |
+| 3 | Narrative | Hamster sitting on subway escalator step, wearing over-ear headphones, carrying black backpack | "Commute" |
+| 4 | Soft-ad | Hamster from behind, sitting in bed looking at iPad showing code/dev interface | "Using xxx to survive the human world" |
+
+**Text Layer**: Overlay (white text on image, platform-level)
+
+**Why it works**: Identical mechanism to Case 001. The hamster is a safe proxy for workplace rebellion. Three-layer contrast stacking (Scale + Species-role + Context) creates visual comedy base; the spike slide adds Behavior dimension (middle finger = Tier S social taboo). The grid preview hook lets viewers identify content type at thumbnail stage.
+
+```
+Trigger type(s): Emotional / Instinct (meme/humor)
+Archetype: Character-Action
+
+Primary mechanism: "I wish I could do that" (Forbidden Release)
+- Viewer emotion: Catharsis — "I wish I could flip off my computer at work"
+- Sharing motive: "Look at this hamster living the life we all secretly want"
+- Unspoken truth: "Adult life is an exhausting hamster wheel of work-gym-commute-repeat, and I want to rebel but can't"
+
+Secondary mechanism: "That doesn't belong there" (Absurd Intrusion)
+- Role: Tiny hamster in human-scale environments creates visual comedy foundation.
+  Cute + rude = funnier than just rude.
+```
+
+### Commercial Analysis
+
+- **Ad location**: Slide 4, full frame (hamster from behind looking at tablet)
+- **Strategy**: Ad-as-final-slide — pure narrative slides followed by separate ad slide with different visual treatment (back view, private bedroom vs public settings)
+- **Narrative justification**: "After enduring work, fitness, commute, using this product to survive the human world." Product = coping tool for daily grind.
+- **Subtlety score**: 4 (overt — ad separated from narrative, copy directly mentions product, visual style shifts)
+- **Product-mechanism fit**: Moderate. Product is not part of the punchline. Any tech/productivity/entertainment product could fill this slot.
+
+### Soul vs Skin
+
+| Element | Soul/Skin | Value |
+|---------|:---------:|-------|
+| Trigger type | Soul | Emotional / Instinct (meme/humor) |
+| Primary mechanism | Soul | Forbidden Release |
+| Secondary mechanism | Soul | Absurd Intrusion |
+| Archetype | Soul | Character-Action |
+| Information Format | Soul | List (each slide = one life domain) |
+| Visual Continuity | Skin | Weak (thematic) — could be medium |
+| Linguistic pattern | Soul | Single-word label |
+| Text layer | Skin | Overlay |
+| Ad insertion strategy | Skin | Ad-as-final-slide |
+| Vehicle | Skin | Hamster → any small animal |
+| Setting | Skin | Office/gym/subway/bedroom → any relatable settings |
+| Specific text content | Skin | "Work"/"Fitness"/"Commute" → any life domains |
+| Cultural reference | Skin | Urban worker culture → could be student, parent, etc. |
+| Text format | Skin | Impact Overlay (white text on image) |
+| Visual style | Skin | AI photorealistic → could be illustration, real photo, etc. |
+| Number of slides | Skin | 5 (1 hook + 3 narrative + 1 ad) → adjustable |
+
+**Contrast stacking**: All slides hit 3+ dimensions (Scale + Species-role + Context). Spike slide (Work) adds Behavior dimension (middle finger = Tier S).
+
+**Transferability**: Works for any product framed as "reward/tool after enduring daily grind" — entertainment, productivity, lifestyle. BREAKS for products that need to BE the punchline (ad is separated, not integrated). Also breaks for serious/luxury brands (meme tone conflicts with premium positioning).
+
+**Key tactics**:
+1. **Grid preview hook**: 2×2 collage as slide 0 — content type recognition at thumbnail stage
+2. **Spike-first ordering**: Strongest slide (middle finger) at Slide 1, not last — ensures impact even if viewers only see two slides
+3. **3D contrast stacking**: Scale + Species-role + Context per slide — images funny even with text covered
+4. **Anthropomorphic accessories**: Headphones, backpack, backwards cap, dumbbell reinforce "hamster living human life" absurdity
+
+**Lesson**: Confirms Case 001 template is highly replicable — swap the product and it works. Exposes Ad-as-final-slide limitation: separation between ad and narrative is noticeable (subtlety 4/5), less natural than Ad-as-punchline (Case 006) or Ad-as-reward (Case 004). To improve: place product within a narrative slide scene (Ad-as-background) instead of a separate slide.
+
+---
+
 *Add new cases below. Header MUST include: Archetype, Trigger, Info Format, Visual Continuity. MUST include Soul vs Skin table. See Case 006 as model.*
