@@ -19,7 +19,8 @@ Use current `museoncli schema routines` and routine subcommand help. Read existi
 The hourly routine must:
 
 1. Read only changes since a durable per-channel watermark.
-2. Reconcile creator/channel records by stable IDs.
+2. Reuse confirmed Creator/channel mappings by stable IDs and run bounded fuzzy matching
+   only for new or unresolved private channels.
 3. Recompute the current waiting party and separate creator-waiting from team-waiting.
 4. Recompute `>24h` only from message timestamps and the correct waiting party.
 5. Mark overdue only from an explicit due date or dated promise.
@@ -89,7 +90,9 @@ Top vids
 
 - Preserve the confirmed title style, section order, bullet style, blank lines, link order, and metric labels.
 - Distinguish daily/window metrics from cumulative metrics.
-- Use Campaign performance data for post and view counts, reconciled with Discord onboarding state.
+- Use Museon's canonical Campaign, onboarding, authorization, post, and performance
+  state; join Discord communication only after resolving its private channel to the
+  canonical Creator.
 - Report onboarding, account supplied, account authorized, warm-up complete, and ready
   for formal production as separate stages when those facts are available.
 - Exclude identified warm-up videos from formal Campaign delivery and performance totals

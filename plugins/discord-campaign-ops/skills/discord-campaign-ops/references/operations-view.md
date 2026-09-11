@@ -12,20 +12,24 @@ Suggested fields:
 
 | Group | Fields |
 | --- | --- |
-| Identity | Campaign, creator name, Discord user ID, channel ID, Workspace link |
-| Onboarding | Workspace created, agreement status, new account requested, account supplied, added to Campaign, onboarded |
-| Authorization | authorization link status, authorized account, authorization evidence time |
+| Identity | Campaign, Museon Creator ID/name, Discord user ID, channel ID, Workspace link, mapping confidence/evidence |
+| Onboarding | canonical Campaign membership and onboarding status |
+| Authorization | canonical Creator/account link and authorization status |
 | Conversation | last creator message, last team message, waiting party, reply needed, creator intent |
 | Action | suggested action, suggested reply, owner |
 | Delivery | warm-up status, production readiness, current stage, video status/type, warm-up candidate, Campaign removal status, explicit due date, overdue evidence |
 | Performance | raw posts/views, excluded warm-up posts/views, adjusted posts/views, top-video evidence |
 | Risk | creator no reply >24h, team no reply >24h, risk reason, updated at |
 
-Use a stable upsert key such as `Campaign ID + Discord user ID`, with channel ID as a reconciliation key. Hourly jobs must update records, not append duplicates.
+Use `Campaign ID + Museon Creator ID` as the stable upsert key. Persist Discord user and
+channel IDs only after identity resolution. Keep unresolved private channels in a
+separate mapping queue keyed by `guild ID + channel ID`; do not create duplicate Creator
+records from fuzzy matches. Hourly jobs must update records, not append duplicates.
 
 Recommended filtered table views:
 
 - 全部 Creator;
+- Discord 频道待关联;
 - PM 待处理;
 - Creator 未回复 >24h;
 - 团队未回复 >24h;
