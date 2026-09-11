@@ -1,0 +1,12 @@
+.DS_Store
+.env
+.env.*
+*.env
+*.env.*
+.discord*.env
+.token
+*.token
+token.txt
+bot-token.txt
+credentials*.json
+secrets*.json

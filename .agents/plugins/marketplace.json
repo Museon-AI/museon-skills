@@ -1,0 +1,20 @@
+{
+  "name": "museon-team",
+  "interface": {
+    "displayName": "Museon Team"
+  },
+  "plugins": [
+    {
+      "name": "discord-campaign-ops",
+      "source": {
+        "source": "local",
+        "path": "./plugins/discord-campaign-ops"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Marketing"
+    }
+  ]
+}
