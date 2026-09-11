@@ -9,14 +9,33 @@ Discover current Discord commands on demand. Inventory only the confirmed guild 
 - tracker, review, or announcement channels only when they provide Campaign evidence;
 - Museon Campaign creator/content records needed to reconcile Discord conversation with performance data.
 
-Do not assume every person in a campaign channel is an onboarded creator. Preserve an explicit `pending campaign membership` state.
+Do not infer onboarding or authorization from Discord membership. First resolve the
+private channel to a canonical Museon Creator, then read that Creator's Campaign,
+onboarding, account-link, and authorization state from Museon.
 
-## Creator operating lifecycle
+## Canonical lifecycle and Discord identity resolution
 
 Creators are usually recruited through direct outreach and join the Discord guild after
-an agreement may already have been signed. Guild membership is not proof of agreement,
-account readiness, authorization, or Campaign membership. Reconstruct the latest state
-from the conversation and any available Museon records using this lifecycle:
+an agreement may already have been signed. The Museon database already owns Campaign
+Creator membership, onboarding, Creator/account links, and authorization status. Read
+those states directly rather than rebuilding them from chat.
+
+The missing association is commonly `private Discord channel ↔ Museon Creator`. Resolve
+candidate matches using several signals together:
+
+- private channel name and normalized Creator/display names;
+- Discord member display name and username;
+- social account handles or profile URLs mentioned in the channel;
+- authorization links, video links, and other Creator-specific identifiers in messages;
+- surrounding onboarding messages that explicitly name the Creator.
+
+Do not accept a weak name-only match when multiple Creators are plausible. Retain the
+candidate, matched signals, confidence, and conflicting signals. Ask the PM to confirm
+ambiguous mappings. Once confirmed, persist the stable Museon Creator ID, Discord user
+ID, and private channel ID so later runs do not repeat fuzzy matching.
+
+Use the following lifecycle to organize the combined view, but take its modeled states
+from Museon and its unmodeled communication or warm-up evidence from Discord:
 
 ```text
 joined Discord
@@ -30,13 +49,13 @@ joined Discord
 → video planned / recorded / submitted / published
 ```
 
-Some steps may overlap or be handled outside the visible channel. Keep an explicit
-`unknown` state instead of inventing completion.
+Some steps may overlap. A channel that cannot yet be mapped remains an `unmapped Creator
+Workspace`; it is not evidence that a new or non-onboarded Creator exists.
 
 Creator authorization means OAuth authorization of the new social account to Museon or
 its approved provider. It is separate from the creator agreement and Discord bot/guild
-authorization. Sending an authorization link proves only `link sent`; it does not prove
-that the creator completed authorization. Track at least `link not created`, `link sent / awaiting creator`, `authorized`, `failed or expired`, and `unknown` when evidence permits.
+authorization. Use Museon's Creator link and authorization status as canonical. Chat may
+explain a delay or reveal that a user needs help, but it must not replace that status.
 
 Warm-up is account preparation before formal Campaign posting. It can include normal
 vertical browsing and interaction and may include warm-up videos. Do not count warm-up
@@ -63,19 +82,20 @@ requested that mutation.
 
 ## Evidence precedence
 
-The database is the source of truth for facts it models. Do not overwrite a canonical
-Campaign membership, account, post, authorization, or performance record with a chat
-inference. Some operating stages are not modeled, so also read the latest relevant
-Discord messages and attachments for direct evidence such as a new account handle,
-confirmation that it was added to the Campaign, an authorization link, authorization
-success/failure, a warm-up instruction, a warm-up post and removal request, or a
-recorded/submitted video.
+The database is the source of truth for Campaign membership, onboarding, Creator/account
+links, authorization, posts, and performance. Do not overwrite those facts with chat
+inference. Use Discord text analysis for channel-to-Creator identity resolution,
+current intent and waiting party, operational explanations, warm-up instructions,
+warm-up post identity/removal intent, and video progress that has not yet become a
+canonical Campaign record.
 
 - Missing database state for an unmodeled fact means `unknown`, not `not done`.
 - Store chat-derived state as an inference with evidence and confidence; never present it
   as a database fact.
-- A link being sent means authorization is pending, not complete.
-- A creator joining the guild does not prove agreement or onboarding completion.
+- Do not use a chat message saying a link was sent as the authorization status; read the
+  canonical authorization record.
+- Do not use guild or private-channel membership as onboarding status; read the canonical
+  onboarding record after resolving the Creator identity.
 - Prefer the latest explicit completion or reversal message over an older request.
 - When chat and Museon records conflict, show both timestamps, mark the state as
   conflicting, and recommend verification instead of silently choosing one.
@@ -85,13 +105,9 @@ recorded/submitted video.
 
 For each tracked creator, derive and retain evidence for:
 
-- creator identity and Discord user/channel IDs;
+- canonical Museon Creator ID plus mapped Discord user/channel IDs and mapping confidence;
 - whether a private Workspace exists;
-- agreement status, without treating guild membership as proof;
-- new account requested and supplied status, including the observed handle when safe;
-- whether that account was added to the Museon Campaign;
-- authorization-link and completed-account-authorization status;
-- onboarding status;
+- canonical Campaign membership, onboarding, Creator/account link, and authorization status;
 - warm-up status and current stage;
 - warm-up post candidates and removal-from-Campaign status;
 - last creator message time;
@@ -104,10 +120,9 @@ For each tracked creator, derive and retain evidence for:
 - explicit promised date or formal deadline, if any;
 - risk reason and evidence timestamp.
 
-Do not collapse account authorization, warm-up readiness, or formal production readiness
-into `Onboarded`. If the customer uses `agreement signed + account supplied` as the
-onboarding definition, report that metric separately from `authorized`, `warm-up
-complete`, and `ready for formal production`.
+Do not redefine `Onboarded` from Discord messages. Report Museon's onboarding status,
+authorization status, warm-up readiness, and formal production readiness as separate
+facts.
 
 ## Status language
 

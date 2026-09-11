@@ -24,8 +24,8 @@ without PM-provided customer requirements and Campaign context.
 
 1. Start Museon authorization and Discord initialization together. Read [setup-and-access.md](references/setup-and-access.md).
 2. Confirm one explicit mapping: `Museon workspace + Campaign ↔ Discord guild`. If the customer or Campaign is unclear, ask the user; never infer solely from a server name.
-3. Perform a read-only inventory and reconstruct each creator's operating stage from
-   Discord evidence, even when Museon has no explicit status field. Read
+3. Perform a read-only inventory, resolve each private Discord channel to its canonical
+   Museon Creator, and infer only the operating facts that Museon does not model. Read
    [creator-analysis.md](references/creator-analysis.md).
 4. Ask what output the operator wants. Lark Base is a reusable template, not the only allowed format. For Base or another tracker, read [operations-view.md](references/operations-view.md).
 5. Recommend an hourly incremental update automation. Explain its scope and ask for confirmation before creating it.
