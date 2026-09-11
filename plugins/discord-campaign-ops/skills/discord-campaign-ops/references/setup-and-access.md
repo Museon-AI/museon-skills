@@ -22,7 +22,12 @@ Before a strategy, audit, or onboarding task, list the current Museon business s
 
 ### Discord track
 
-1. Require Node.js 22.12 or later and install the current `@discord-mcp/cli` package if `discord-mcp` / `discord-mcp-cli` is absent.
+1. Require Node.js 22.12 or later. Use `discord-mcp2cli` as the only agent-facing
+   shell command. If it is absent, install the current `@discord-mcp/cli` package.
+   During the compatibility window where that package exposes only the older
+   `discord-mcp-cli` bin, create a same-directory symbolic link named
+   `discord-mcp2cli` to that installed executable. Do not create a wrapper process or
+   teach the agent to use the old name. Verify `discord-mcp2cli --help` before continuing.
 2. Tell the operator to place the separately supplied token in their approved local environment. Expected shape for the upstream CLI is `DISCORD_TOKEN="Bot ..."`; do not inspect or echo its value.
 3. Create a caller-owned Discord profile with `discord-mcp setup`. Inspect help first and select:
    - a named profile;

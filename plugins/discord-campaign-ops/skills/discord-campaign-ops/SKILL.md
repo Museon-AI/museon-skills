@@ -38,7 +38,7 @@ Do not create an automation merely because the skill recommends it. Do not send 
 Use current CLI discovery instead of remembered command names or a copied catalog.
 
 - Museon: inspect `museoncli --help`, the relevant `museoncli schema <group>`, and subcommand help before execution.
-- Discord: use `discord-mcp-cli --profile <profile> --search '<short English intent>' --top 8 --compact`, then inspect the selected command with `--help`.
+- Discord: use `discord-mcp2cli --profile <profile> --search '<short English intent>' --top 8 --compact`, then inspect the selected command with `--help`.
 - Bound large reads by time, channel, creator, cursor, or result count. Prefer machine-readable output.
 - The full Discord MCP schema must stay outside the host model context; the CLI performs bounded discovery on demand.
 
