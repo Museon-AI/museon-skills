@@ -1,0 +1,15 @@
+{
+  "name": "museon-team",
+  "owner": {
+    "name": "Museon AI"
+  },
+  "description": "Museon team's shared plugins and skills for Codex and Claude Code.",
+  "plugins": [
+    {
+      "name": "discord-campaign-ops",
+      "source": "./plugins/discord-campaign-ops",
+      "description": "Operate Discord creator campaigns with Museon mapping, reporting templates, and confirmed automations.",
+      "category": "marketing"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "name": "discord-campaign-ops",
+  "version": "0.1.0",
+  "description": "Operate Discord creator campaigns with Museon mapping, reporting templates, and confirmed automations.",
+  "author": {
+    "name": "Museon AI",
+    "url": "https://github.com/Museon-AI"
+  },
+  "homepage": "https://github.com/Museon-AI/museon-skills/tree/main/plugins/discord-campaign-ops",
+  "repository": "https://github.com/Museon-AI/museon-skills",
+  "keywords": ["discord", "creator", "ugc", "campaign", "operations"]
+}
+
