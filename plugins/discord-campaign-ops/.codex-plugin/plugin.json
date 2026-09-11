@@ -1,6 +1,6 @@
 {
   "name": "discord-campaign-ops",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Operate Discord creator campaigns with Museon mapping, reporting templates, and confirmed automations.",
   "author": {
     "name": "Museon AI",
@@ -13,7 +13,7 @@
   "interface": {
     "displayName": "Discord Campaign Ops",
     "shortDescription": "Track Discord creator onboarding, replies, risks, and delivery.",
-    "longDescription": "Map a Discord server to a Museon campaign, analyze creator workspaces, build an operator-facing tracker, and offer confirmed hourly updates and daily reports.",
+    "longDescription": "Map a Discord server to a Museon campaign, reconstruct creator readiness from operational evidence, build a PM-facing tracker, and offer confirmed hourly updates and daily reports.",
     "developerName": "Museon AI",
     "category": "Marketing",
     "capabilities": ["Discord analysis", "Campaign operations", "Reporting"],

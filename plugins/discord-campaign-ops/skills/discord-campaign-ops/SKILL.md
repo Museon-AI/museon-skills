@@ -13,11 +13,20 @@ description: >
 
 Treat this as a customer-scoped operating workflow, not a Discord server crawler. Establish the exact Museon workspace, Campaign, Discord guild, data destination, and authorization boundary before reporting conclusions.
 
+Operate and report from the Campaign PM's perspective. The useful output is not a
+message digest: it is a decision brief about creator headcount and operating health,
+production readiness, delivery pace, performance, blockers, and the next actions needed
+to keep the Campaign operating. Separate verified facts, chat-derived inferences, and
+PM recommendations. Never decide that Creator capacity is sufficient or insufficient
+without PM-provided customer requirements and Campaign context.
+
 ## Required flow
 
 1. Start Museon authorization and Discord initialization together. Read [setup-and-access.md](references/setup-and-access.md).
 2. Confirm one explicit mapping: `Museon workspace + Campaign ↔ Discord guild`. If the customer or Campaign is unclear, ask the user; never infer solely from a server name.
-3. Perform a read-only inventory and creator analysis. Read [creator-analysis.md](references/creator-analysis.md).
+3. Perform a read-only inventory and reconstruct each creator's operating stage from
+   Discord evidence, even when Museon has no explicit status field. Read
+   [creator-analysis.md](references/creator-analysis.md).
 4. Ask what output the operator wants. Lark Base is a reusable template, not the only allowed format. For Base or another tracker, read [operations-view.md](references/operations-view.md).
 5. Recommend an hourly incremental update automation. Explain its scope and ask for confirmation before creating it.
 6. Separately ask whether the user wants a daily report automation. Before creating it, confirm the report template, delivery time, timezone, destination, and whether the sample preview is accepted. Read [automations-and-daily-report.md](references/automations-and-daily-report.md).

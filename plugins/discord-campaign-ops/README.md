@@ -10,5 +10,9 @@
 4. 推荐每小时增量更新，但创建前询问确认。
 5. 询问是否需要每日日报，并严格按用户确认的模板生成和投递。
 
-完整操作契约见 `skills/discord-campaign-ops/SKILL.md`。
+分析和汇报始终采用 Campaign PM 视角：数据库是其已建模事实的 source of truth，
+Discord 对话用于补齐尚未结构化的账号、授权、warm-up 和视频阶段。插件报告
+Creator 数量与运营健康度；只有 PM 提供客户目标、交付要求、时间和 Campaign
+上下文后，才能判断 Creator 是否充足。
 
+完整操作契约见 `skills/discord-campaign-ops/SKILL.md`。

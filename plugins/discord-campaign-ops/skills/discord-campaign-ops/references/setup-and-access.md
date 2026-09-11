@@ -12,7 +12,11 @@ Do not finish Discord setup first and only then discover the business scope. Beg
 4. Start device authorization. Show the complete verification URL produced by the CLI, never a raw device code, and let the user finish authorization in their browser.
 5. Finish the auth wait, list workspaces, and select the explicit customer workspace.
 6. Search relevant Campaign collections by the customer/campaign name. Use current schemas and help for both the creative Campaign and campaign-monitor surfaces when the business object is ambiguous.
-7. If multiple results are plausible, no result is clear, or the Discord server name does not match exactly, ask the customer which workspace and Campaign to use.
+7. Resolve the business association using all three names together: Museon Workspace,
+   Museon Campaign, and Discord guild. A Workspace is commonly named after the project,
+   while the guild often has a related but non-identical name. Treat name similarity as
+   candidate evidence, not an exact key. Show the best candidate mapping and ask the
+   customer to confirm whenever more than one match remains plausible.
 
 Before a strategy, audit, or onboarding task, list the current Museon business skills and load only the relevant one.
 
@@ -63,3 +67,5 @@ Discord profile: <local non-secret profile name>
 ```
 
 Ask the customer to resolve any ambiguous field before analysis or automation proceeds.
+Once confirmed, reuse this mapping in the operations view and automation state; do not
+repeat name matching on every run unless the saved identifiers are missing or conflict.
