@@ -23,9 +23,11 @@ The hourly routine must:
 3. Recompute the current waiting party and separate creator-waiting from team-waiting.
 4. Recompute `>24h` only from message timestamps and the correct waiting party.
 5. Mark overdue only from an explicit due date or dated promise.
-6. Update the same records without duplication.
-7. Store only non-secret state such as watermarks, Campaign ID, guild ID, and destination identifiers.
-8. Stay quiet when nothing actionable changed unless the user requested routine updates; surface failures or required human action.
+6. Re-evaluate chat-derived warm-up candidates and whether their Campaign removal is
+   pending or confirmed; never infer removal only because an old message asked for it.
+7. Update the same records without duplication.
+8. Store only non-secret state such as watermarks, Campaign ID, guild ID, and destination identifiers.
+9. Stay quiet when nothing actionable changed unless the user requested routine updates; surface failures or required human action.
 
 Never place the Discord token or Museon credential in the routine prompt or persisted state. Use the runtime's approved secret injection.
 
@@ -88,10 +90,21 @@ Top vids
 - Preserve the confirmed title style, section order, bullet style, blank lines, link order, and metric labels.
 - Distinguish daily/window metrics from cumulative metrics.
 - Use Campaign performance data for post and view counts, reconciled with Discord onboarding state.
+- Report onboarding, account supplied, account authorized, warm-up complete, and ready
+  for formal production as separate stages when those facts are available.
+- Exclude identified warm-up videos from formal Campaign delivery and performance totals
+  unless the customer confirms that they count. If a warm-up candidate is still present
+  in Campaign data, show raw totals, adjusted totals, and the pending cleanup item.
 - Count unique videos by the customer's confirmed content identity rule; do not equate posts with unique videos by default.
 - Rank Top videos from observable synchronized data and include creator, platform, views, and direct URL in the confirmed format.
 - Do not invent missing values. Mark incomplete synchronization and its cutoff time.
+- Write for the PM who must choose the next action. Surface Creator counts and operating
+  health, creators who need intervention, warm-up cleanup, delivery pace, and
+  top-performing videos whose hook/script/format deserves review or reuse.
+- Never present Creator capacity as definitively sufficient or insufficient from
+  operational data alone. Make that assessment only with PM-provided customer goals,
+  delivery requirements, timeline, Campaign stage, and constraints, and present it for
+  PM confirmation. Otherwise ask for context and limit the report to observed health.
 - Preview one report using current data, show it to the user, and obtain explicit acceptance before activating the daily routine.
 
 After creation, verify the schedule, timezone, recipient, next run, and routine status. Keep hourly state refresh and daily message delivery as separate routines so either can be paused independently.
-
