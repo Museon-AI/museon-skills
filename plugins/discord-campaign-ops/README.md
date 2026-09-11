@@ -1,6 +1,6 @@
 # Discord Campaign Ops
 
-面向 UGC Campaign 运营的 Discord 工作流插件。插件本身不包含 Bot token，也不注册完整 Discord MCP 工具目录；skill 会引导 Agent 安装依赖、完成授权、按需发现命令并建立经用户确认的运营输出和 automation。
+面向 UGC Campaign 运营的 Discord 工作流插件。插件本身不包含 Bot token，也不注册完整 Discord MCP 工具目录；skill 会引导 Agent 安装依赖、完成授权、通过 `discord-mcp2cli` 按需发现命令并建立经用户确认的运营输出和 automation。
 
 主要流程：
 
