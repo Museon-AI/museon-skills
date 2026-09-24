@@ -23,11 +23,20 @@ Before a strategy, audit, or onboarding task, list the current Museon business s
 ### Discord track
 
 1. Require Node.js 22.12 or later. Use `discord-mcp2cli` as the only agent-facing
-   shell command. If it is absent, install the current `@discord-mcp/cli` package.
-   During the compatibility window where that package exposes only the older
-   `discord-mcp-cli` bin, create a same-directory symbolic link named
-   `discord-mcp2cli` to that installed executable. Do not create a wrapper process or
-   teach the agent to use the old name. Verify `discord-mcp2cli --help` before continuing.
+   shell command. If it is absent, install the Museon build from its release tarballs
+   in one command, so the CLI resolves the matching core package instead of the npm registry:
+
+   ```bash
+   npm install -g \
+     https://github.com/Museon-AI/discord-mcp2cli/releases/download/v0.26.1-museon.1/discord-mcp-core-0.26.1-museon.1.tgz \
+     https://github.com/Museon-AI/discord-mcp2cli/releases/download/v0.26.1-museon.1/discord-mcp-cli-0.26.1-museon.1.tgz
+   ```
+
+   This build provides both `discord-mcp` and `discord-mcp2cli`; do not create a wrapper
+   process or teach the agent the older `discord-mcp-cli` name. Verify
+   `discord-mcp2cli --help` before continuing. In this build, `messages_read` /
+   `messages_get` return attachments, embeds, reaction counts, and reply references, and
+   `messages_download_attachments` saves a message's attachments locally.
 2. Tell the operator to place the separately supplied token in their approved local environment. Expected shape for the upstream CLI is `DISCORD_TOKEN="Bot ..."`; do not inspect or echo its value.
 3. Create a caller-owned Discord profile with `discord-mcp setup`. Inspect help first and select:
    - a named profile;
