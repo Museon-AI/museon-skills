@@ -52,6 +52,10 @@ claude plugin install discord-campaign-ops@museon-team
 
 Bot token 不随插件分发。运营人员应通过线下渠道获得 token，并只保存在本地环境或组织批准的 secret store 中。详见插件 skill 的初始化说明。
 
+## GeeLark 云端注册
+
+独立 skill：[GeeLark 云端注册与 Agent 协作](skills/geelark-cloud-registration/SKILL.md)，涵盖独立云会话调度、ADB 单套注册、人工验证交接、飞书回填与结果验收。
+
 ## 贡献约定
 
 - 可安装能力放在 `plugins/<plugin-name>/`；独立 skill 放在 `skills/<skill-name>/`。
